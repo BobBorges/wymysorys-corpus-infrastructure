@@ -1,0 +1,44 @@
+{% extends 'nwymc/base.html' %}
+{% load i18n %}
+
+    {% block content %}
+
+        <div class="col-lg-8 col-md-12">
+
+            <h2 class='center'>{% translate 'Corpus of New Wymysorys' %}</h2>
+    
+            <p>{% translate 'This is the beginning of a UI for the Corpus of New Wymysorys.' %}</p>
+
+            <p>{% translate 'Wymysorys has been undergoing language revitalization for the past 15 or so years, and like most endangered langauges, a bulk of research efforts has focused on older texts and especially older speakers. This resource is comprised of texts produced (written or translated) since the begining of revitalization efforts by young(er) people.' %}</p>
+    
+            <p>{% translate 'In order to acces this resource, you must:' %}
+
+                <ul>
+                    <li>{% translate 'Register an account on the site' %}</li>
+                    <li>{% translate 'Send a message to nespomila.web(at)ispan.waw.pl with the email you used to register the account and describe how you plan to use the resource. (In the future, this resource will be publically available, but while we iron out all the kinks we would like to know who has access and for what purpose.)' %}</li>
+                </ul>
+            <br><br>
+            <h3>{% translate 'Corpus Statistics' %}</h3>
+
+                <p>{% translate 'The corpus contains:' %}
+                    <ul>
+                        <li>{% translate 'Words (any language):' %}&nbsp;{{ wordssummary.N_all_all_words }}&nbsp;{% translate 'total' %} / {{ wordssummary.N_uniq_all_words }}&nbsp;{% translate 'unique' %}</li>
+                        <li>{% translate 'Words (Wymysorys only):' %}&nbsp;{{ wordssummary.N_all_wym_words }}&nbsp;{% translate 'total' %} / {{ wordssummary.N_uniq_wym_words }}&nbsp;{% translate 'unique (n.b. This does not include fragments marked as direct translations, only free Wymysorys text.)' %}</li>
+                        <li>{% translate 'Ten most frequent tokens and their occurrence in Wymysorys fragments:' %}
+                            <ul>
+                            {% for token, freq in wordssummary.ten_frequentest.items %}
+                                <li>{{ token|safe }}: {{ freq }}</li>   
+                            {% endfor %}
+                            </ul>
+                        </li>   
+                        <li>{% translate 'Assets:' %}&nbsp;{{ NAssets }}&nbsp;{% translate 'defined assets (source files), of which' %}&nbsp;{{ NpublicAssets }}&nbsp;{% translate 'are user facing' %}</li>
+                        <li>{% translate 'Documents:' %}&nbsp;{{ NDocuments }}&nbsp;{% translate 'defined Documents, of which' %}&nbsp;{{ NreadyDocuments }}&nbsp;{% translate 'are searchable in the corpus' %}</li> 
+                        <li>{% translate 'Authors:' %}&nbsp;{{ NAuthors }}&nbsp;{% translate 'defined Authors' %}</li>
+                    </ul>
+                </p>    
+
+        </div>
+
+        {% include 'nwymc/sidebar_nav.html' %}
+    
+    {% endblock content %}

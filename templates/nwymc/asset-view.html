@@ -1,0 +1,90 @@
+{% extends 'nwymc/base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+    {% block content %}
+
+        <div class="col-lg-1"></div>
+
+        <div class="col-lg-10 col-md-12">
+
+            <h2 class="center">{% translate 'Asset: id#' %}{{ asset.id }}</h2>
+
+            <hr>
+    
+            <table width="50%">
+                <tr>
+                    <td>{% translate 'Filename' %}</td>
+                    <td>{{ filename }}</td
+                </tr>
+                <tr>
+                    <td>{% translate 'Assigned to document:' %}</td>
+                    {% if asset.document != None %}
+                    <td><a href="{% url 'nwymc-document-meta' asset.document.id %}">{{ asset.document }}</td>
+                    {% else %}
+                    <td>{% translate 'False' %}
+                        {% if request.user.permission.level == 'worker' or request.user.permission.level == 'admin' %}
+                            [<a id="formShowHide" href="javascript:void(0)" onclick="showHideAssetAssignmentForm()">{% translate 'assign' %}</a>]
+                        {% endif %}</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>{% translate 'Date Added:' %}</td>
+                    <td>{{ asset.dateadded }}</td>
+                </tr>
+                <tr>
+                    <td>{% translate 'Shown in UI:' %}</td>
+                    <td>{{ asset.showonui }}</td>
+                </tr>
+            </table>
+
+            {% if asset.document == None %}
+            <div id="assignAssetForm" style="display:none;">
+            <hr>
+            <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 col-sm-12">
+                <form method="post" enctype="multipart/formdata">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info" type="submit">{% translate 'Submit' %}</button>
+                    </div>    
+                </form>
+            </div>
+            </div>
+            </div>
+            {% endif %}
+    
+            <hr>
+
+            {% if asset.filetype == 'pdf' or asset.filetype == 'img' %}
+                <iframe src="localhost:8000{{ asset.file_instance.url }}" width="100%" height="750px"></iframe>
+            {% else %}
+                <p>This type of asset cannot be displayed (yet).</p>
+            {% endif %}
+
+        </div>
+
+    {% endblock content %}
+
+    {% block JSblock %}
+    <script>
+    var hide_form = '{% translate "hide form" %}'
+    var assign = '{% translate "assign" %}' 
+    function showHideAssetAssignmentForm(){ 
+        var button = document.getElementById('formShowHide');
+        var formDiv = document.getElementById('assignAssetForm');
+        if (formDiv.style.display == 'none'){
+            formDiv.style.display = 'block';
+            button.innerHTML = hide_form;    
+        }else{
+            formDiv.style.display = 'none';
+            button.innerHTML = assign;
+        }      
+    }
+    
+    </script>    
+    {% endblock JSblock %}

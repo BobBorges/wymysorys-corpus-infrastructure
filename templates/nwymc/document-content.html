@@ -1,0 +1,96 @@
+{% extends 'nwymc/base.html' %}
+{% load i18n %}
+
+
+    {% block header %}
+    <style>
+        .pagination{
+            text-align:center;  
+        }   
+    </style>
+    {% endblock %}
+    {% block content %}
+
+
+
+        <div class="col-lg-12">
+
+            <h2 class="center">{% translate 'Document content: ' %}{{ document.title }}</h2>
+            <hr>
+
+            {% if document.readyincorpus == True %}
+            <p>
+                <table>
+                    <tr>
+                        <th>Paragraph</th>
+                        <th>Fragment</th>
+                        <th>Language</th>
+                        <th>Text</th>
+                        <th>Margin</th>
+                    </tr>
+                    {% for p in paragraphs %}
+                        {% for f in p.paragraphfragment_set.all %}
+                            {% if forloop.first %}
+
+                                <tr>
+                                    <td rowspan="{{ p.paragraphfragment_set.all|length }}">{{ p.order }}</td>
+                                    <td>{{ f.order }}</td>
+                                    <td>{{ f.language }}</td>
+                                    <td>{{ f.text }}</td>
+                                    <td>
+                                    {% if f.margintext_set.all|length > 0 %}
+                                        <div title="{{ f.margintext_set.all.0.text }}">{{ f.margintext_set.all.0.location }}</div>
+                                    {% else %}
+                                        ---
+                                    {% endif %}
+                                    </td>
+                                </tr>
+
+                            {% else %}
+    
+                                <tr>
+                                    <td>{{ f.order }}</td>
+                                    <td>{{ f.language }}</td>
+                                    <td>{{ f.text }}</td>
+                                    <td>
+                                    {% if f.margintext_set.all|length > 0 %}
+                                        <div title="{{ f.margintext_set.all.0.text }}">{{ f.margintext_set.all.0.location }}</div>
+                                    {% else %}
+                                        ---
+                                    {% endif %}
+                                    </td>
+                                </tr>
+    
+                            {% endif %}                        
+                        {% endfor %}
+                    {% endfor %}
+                </table>
+            </p>    
+            <hr>
+            <!--Pagination starts-->
+            <br>
+            <div class="pagination">
+                <p style="width:100%; text-align:center;">
+                {% if paragraphs.paginator.num_pages > 1 %}
+                {% translate 'pages:' %}&nbsp;
+                {% for num_page in paragraphs.paginator.page_range %} 
+                    {% if num_page == paragraphs.number %}
+                        <u>{{num_page}}</u>&nbsp;
+                    {% else %}
+                        <a href="?page={{num_page}}">{{num_page}}</a>&nbsp;
+                    {% endif %}
+                {% endfor %}
+                {% endif %}
+                </p>
+            </div>
+            <!--pagination ends-->
+
+            {% else %}
+
+                <p>{% translate 'This document is not ready for viewing in the corpus.<br> If you have sufficient permissions, check out the document assets and consider creating a markup version!' %}</p>
+
+            {% endif %}
+
+        </div>
+
+    {% endblock content %}

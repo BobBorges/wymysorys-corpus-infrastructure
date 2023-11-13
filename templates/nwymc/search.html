@@ -1,0 +1,102 @@
+{% extends 'nwymc/base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+    {% block content %}
+
+        <div class="col-lg-1"></div>
+
+        <div class="col-lg-10 col-md-12">
+
+            <h2 class="center">{% translate 'Search the Corpus' %}</h2>
+            <form method="GET" enctype="multipart/formdata">
+                <fieldset class="form-group">
+    
+                    {{ form.term|as_crispy_field }}
+                    <p><small>{% translate "Advanced Search Options:" %}&nbsp;<a href="javascript:showHideAdvanced()" id="advancedShowerHider">{% translate 'show' %}</a> </small>    </p>
+                    <div id="advancedOptionsDiv" style="display:none;">
+                            {{ form.queryinlanguage|as_crispy_field }}
+                            {{ form.findintitles|as_crispy_field }}
+                            {{ form.regex|as_crispy_field }}
+                            {{ form.wholewords|as_crispy_field }}
+                            {{ form.ignorelinebreaks|as_crispy_field }}
+                    </div>  
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info btn-block" type="submit">{% translate 'Search' %}</button>
+                </div>
+            </form>
+        </div>
+        <p>{{ N_results }}, {{ N_results }}</p>  
+        <p>{{ qqquery }}</p>
+        <div class="col-lg-12">
+
+            {% if query != None %}
+                {% if search_results|length > 0 %}
+    
+                    <hr>
+
+                    <p>{{ N_results }} results</p>    
+    
+                    {% if query.findtitles %}
+                        {% for R in search_results %}
+                            <p>{{ R.title }}</p>
+                        {% endfor %}
+                    {% else %}
+                        <table>
+                        {% for R in search_results %}
+                            <tr>
+                                <td colspan="3"><small>{{ R.0.paragraph}} ({{ R.0.language }}) &nbsp;&nbsp;&nbsp;&nbsp; Read the whole document <a href="{% url 'nwymc-document-content' R.0.paragraph.document.id %}" target="_blank">here</a></small></td>
+                            </tr>   
+                            <tr>
+                                <td style="text-align:right;">{{ R.1 }}</td>
+                                <td style="vertical-align:middle;"><b>{{ R.2 }}</b></td>
+                                <td style="vertical-align:bottom;">{{ R.3 }}</td>
+                            </tr>   
+                        {% endfor %}
+                        </table>    
+                    {% endif %}
+                {% endif %}
+
+
+    
+                <!--Pagination starts-->
+                <br>
+                <div class="pagination">
+                    <p style="width:100%; text-align:center;">
+                    {% translate 'pages:' %}&nbsp;
+                    {% for num_page in search_results.paginator.page_range %} 
+                        {% if num_page == search_results.number %}
+                            <u>{{num_page}}</u>&nbsp;
+                        {% else %}
+                            <a href="?page={{num_page}}{% for k, v in request.GET.lists %}{% if k != 'page' %}{% for vv in v %}&{{ k }}={{ vv }}{% endfor %}{% endif %}{% endfor %}">{{num_page}}</a>&nbsp;
+                        {% endif %}
+                    {% endfor %}
+                    </p>
+                </div>
+                <!--pagination ends-->
+
+
+            {% endif %}
+        
+        </div>
+<script>
+
+function showHideAdvanced(){
+
+    var show = '{% translate "show" %}'
+    var hide = '{% translate "hide" %}'   
+
+    var atag = document.getElementById('advancedShowerHider');
+    var adiv = document.getElementById('advancedOptionsDiv');
+    if(adiv.style.display == 'none'){
+        adiv.style.display = 'block';
+        atag.innerHTML = hide
+    }else{
+        adiv.style.display = 'none';
+        atag.innerHTML = show
+    }            
+}
+</script> 
+    {% endblock %}
+    

@@ -1,0 +1,123 @@
+{% extends 'NWymC/base.html' %}
+{% load i18n %}
+
+    {% block content %}
+
+        <div class="col-lg-1"></div>
+
+        <div class="col-lg-10 col-md-12">
+    
+            <h1>{% translate 'Markup reference' %}</h1>
+
+            <p>{% translate 'A corpus, by definition, is a way to bring a unified structure to a set of texts. This corpus attempts to accomplish that with as little pain and monotony as possible by using a simple custom "Markup language". This is simply a small set of conventions inspired by XML to indicate various structures in a text.' %}</p>
+
+            <p>{% translate 'The  markup language as a means to bring some userfriendliness to the structuring process. Anyone can create a marked up, plain-text version of a document; on submission of a finished markup to the corpus, it will be read by a script that will deposit various parts of the text into the corpus database in a correctly structured way. In other words, markup saves users of the corpus the trouble of having to understand and/or mess with the underlying database. This document describes the markup conventions associated with this corpus.' %}</p>
+
+
+
+    
+            <h3>{% translate 'Paragraphs and Fragments' %}</h3>
+
+                <p>{% translate 'While you do not need to understand all the nitty-gritty SQL, it is helpful to know a little bit about how the database stores text; basically there are two major subdivisions Paragraph and Fragment. Paragraph is a subdivision of a complete text. Fragment is a subdivision of a Paragraph. In the database, Paragraph objects are really just containers for Fragments – there is not text in a Paragraph by itself; all text is contained within a Fragment object. Aside from Paragraphs and Fragments, nothing else matters! The database doesn&#39;t care about sections, pages, sentences, lines or whatever...' %}</p>
+    
+                <p>
+                    <ul>
+                        <li>{% translate 'PARAGRAPH: In prose, is a "natural" subdivision of text. Usually starting on a new line, set off by an indent, and ending with a new line. In the corpus markup, a paragraph sits on a single numbered line; if a paragraph is longer than the window it will be wrapped and the next numbered line will be pushed down to make space (see image). In poetry / song lyrics, by convention, the markup used here groups a stanza together as a paragraph. See the "Simple Formatting" subsection about inserting line breaks.' %} </li>
+    
+                        <br><p><img src="" alt="IMAGE: NWymC-markup-eg_01"></p> 
+
+                        <li>{% translate 'FRAGMENT: Fragments are subdivisions of paragraphs. As mentioned above, in the database text is actually all stored in Fragment objects and by default a Paragraph will contain one Fragment unless there is some tag in the markup to trigger the close of one and opening of another Fragment within the paragraph. Since the corpus handles multilingual texts by design, the main function of fragments is to differentiate languages in multilingual text (see "Text Language" section). Setting a new language within a line of markup automatically causes program to end the current Fragment and begin a new Fragment. In general Monolingual Paragraph objects will contain just one Fragment. It is also possible to force a new Fragment without setting a new language using  &lt;ENDFRAGMENT/&gt;; this is handy only when there would be multiple Marginal Comments associated with a single fragment (since the parser only allows one Marginal text object per fragment... see the "Marginal Text" section below).' %}</li>
+
+                        <li>Empty lines and lines containing only a &lt;br/&gt; tag are ignored.</li>
+    
+                    </ul>
+                </p>
+
+                <p>{% translate 'Nevertheless, some other parts of a text, like pages, sentences, line breaks, or even text formatting like bold, italic, underline are in fact meaningful, so we take care of that in the text markup &mdash; described in the next sections.' %}</p> 
+    
+
+
+    
+            <h3>{% translate 'Simple Formatting' %}</h3>
+
+                <p>{% translate 'We have a means to indicate the most basic types of formatting within a document.' %} b i u s</p>
+
+                <p>
+                    <ul>
+
+                        <li>{% translate 'Line break:' %}&nbsp;&lt;br/&gt;
+
+                            <p>{% translate 'Line breaks are sometimes meaningful and we might not realize it, but a line is not necessarily a good delimiter for structuring text (hence not using them as part of the database structure. We mark page breaks within fragments using &lt;br/&gt;. Poetry and song lyrics are obvious cases where line breaks are meaningful; in these cases a stanza is marked up as paragraph (i.e. on a single line in the markup editor) and line breaks are indicated with the &lt;br/&gt; tag. Since we generally might not realize when line breaks are meaningful (unless you are marking up a text that you authored yourself) we indicate breaks wherever they occur within the text. Between words, &lt;br/&gt; should be adjacent to the following word with a space before &mdash; "between &lt;br/&gt;words". When a word breaks across a line breaks across a word, use &lt;br/&gt; with a hyphen prefix and no spaces around it &mdash; Wymy-&lt;br/&gt;sorys.' %}</p>
+                        </li>
+    
+                        <li>{% translate 'Page breaks:' %}&nbsp;&lt;ENDPAGE NR="1"&gt;
+                            <p>{% translate 'Like line breaks, page breaks are also usually not a reliable delimiter for structuring texts. Especially given that page breaks can happen within a sentence or paragraph, structuring text around page breaks causes problems in hierarchical document structure. Here we indicate page breaks with the &nbsp;&lt;ENDPAGE NR="1"&gt; tag, where "1" represents the page that is actually ending (n.b. Use pages of the asset, not the numbered pages in the document &ndash; often in PDF documents the numbered pages do not match the page of the file.) Like line breaks, we mark page breaks where they fall, right in the text if a page breaks across a fragment. If the page break is not mid fragment, put the &nbsp;&lt;ENDPAGE NR="1"&gt; tag on its own line.' %}</p>
+                        </li>
+
+                        <li>{% translate 'Font styles' %}
+
+                            <p>{% translate 'Fonts are styled as in HTML.' %}
+                                <ul>
+                                    <li>&nbsp;&lt;b&gt;<b>bold</b>&lt;/b&gt;</li>
+                                    <li>&nbsp;&lt;i&gt;<i>italic</i>&lt;/i&gt;</li>
+                                    <li>&nbsp;&lt;u&gt;<u>underline</u>&lt;/u&gt;</li>
+                                    <li>&nbsp;&lt;s&gt;<s>strike through</s>&lt;/s&gt;</li>
+                                </ul>      
+                            </p>
+                        </li>
+    
+                        <li>{% translate 'Escape angle brackets in text, as in html. "&amp;lt;" and "&amp;gt;" for &lt; and &gt;, respectively.' %}</li>
+                    </ul>
+                </p>
+
+
+        
+            <h3>{% translate 'Text Language' %}</h3>
+
+            <p>{% translate 'Every Fragment object in the database has a language attribute. To avoid tediously marking a bazillion times language, we use the &lt;SET language=""/&gt; tag whenever the language in a text changes.' %}</p>
+
+            <p>{% translate 'The first line of a markup <i>MUST</i> be a line with the &lt;SET language=""/&gt; tag and only this tag. This should be set to the first language in the document and can be re-set as often as necessary, either between Paragraphs or within fragments as appropriate.' %}</p>
+
+            <p>{% translate 'Language tags must be set to predefined values. These are:' %}
+                <ul>
+                    <li>English</li>
+                    <li>German</li> 
+                    <li>Polish</li>
+                    <li>Wymysorys</li>
+                    <li>TX, English-Wymysorys</li>
+                    <li>TX, German-Wymysorys</li>
+                    <li>TX, Polish-Wymysorys</li>
+                </ul>
+            </p>    
+            <p>{% translate 'Values that begin with "TX" are meant to be used with direct translations of words or phrases. The order of the two languages after "TX" is alphabetical; the same tag used for "good-güt" and "güt-good".' %}</p> 
+
+
+    
+
+    
+            <h3>{% translate 'Marginal Text' %}</h3>
+
+            <p>{% translate 'Marginal text is text which is not part of the main text, such as page numbers, headers/footers, footnotes, notes scribbled in the margins or between lines. For instance:' %}
+                <ul>
+                    <li>&lt;MARGIN location="bottom"&gt;{% translate 'Here is some text that was scribbled in the bottom margin of a document' %}&lt;/MARGIN&gt;</li>   
+                </ul>   
+            </p>
+
+            <p>{% translate 'The &lt;MARGIN&gt; tag has one attribute "location". Possible location values are:' %}
+                <ul>
+                    <li>bottom</li>
+                    <li>bottom-left</li>
+                    <li>bottom-right</li>
+                    <li>left</li>
+                    <li>right</li>
+                    <li>top</li>
+                    <li>top-right</li>
+                    <li>top-left</li>
+                </ul>
+            </p>    
+    
+            <p>{% translate 'Currently, the markdown parser only handles one &lt;MARGIN&gt; tag, so a hack to include multiple Marginal Text instances on what would be one Fragment is to force a fragment break with &lt;ENDFRAGMENT/&gt;.' %}</p> 
+    
+        </div>
+
+    {% endblock %}

@@ -1,0 +1,107 @@
+{% extends 'nwymc/base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+    {% block content %}
+
+        <div class="col-lg-1"></div>
+
+        <div class="col-lg-10 col-md-12">
+
+            <h2 class="center">{% translate 'Document overview' %}
+            {% if request.user.permission %}
+            {% if request.user.permission.level != 'public' %}
+                &nbsp;<a href="javascript:void(0)" style="color:green;" id="PlusMinus" onclick="FormShowHide()">+</a>   
+            {% endif %}
+            {% endif %}
+            </h2>
+            
+            {% if request.user.permission %}
+            {% if request.user.permission.level != 'public' %}
+            <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+            <div id="formDiv" style="display:none;">
+                <form  method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info btn-block" type="submit">{% translate 'Submit' %}</button>
+                    </div>  
+                </form>  
+            </div>    
+            </div>            
+            </div>      
+            {% endif %}
+            {% endif %}
+            <hr>
+    
+            <p>
+                <table>
+                    <tr>
+                        <th>{% translate 'Title' %}</th>
+                        <th>{% translate 'Year' %}</th>
+                        <th>{% translate 'Author(s)' %}</th>
+                        <th>{% translate 'In Collection' %}</th>
+                        <th>{% translate 'Ready in corpus' %}</th>
+                        <th>{% translate 'N Assets' %}</th>
+                    </tr>
+                    {% for DO in document_objects %}
+                    <tr>
+                        <td><a href="{% url 'nwymc-document-meta' DO.id %}">{{ DO.title }}</a></td>
+                        <td>{{ DO.prod_y }}</td>
+                        <td>
+                        {% for author in DO.authors.all %}
+                            {% if forloop.last %}
+                                {{ author }}
+                            {% else %}
+                                {{ author }}<br>
+                            {% endif %}
+                        {% endfor %}
+                        </td>
+                        <td>{{ DO.incollection }}</td>
+                        <td>{{ DO.readyincorpus }}</td>
+                        <td>{{ DO.asset_set.all|length }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </p>
+            <hr>
+            <!--Pagination starts-->
+            <br>
+            <div class="pagination">
+                <p style="width:100%; text-align:center;">
+                {% if document_objects.paginator.num_pages > 1 %}
+                {% translate 'pages:' %}&nbsp;
+                {% for num_page in document_objects.paginator.page_range %} 
+                    {% if num_page == document_objects.number %}
+                        <u>{{num_page}}</u>&nbsp;
+                    {% else %}
+                        <a href="?page={{num_page}}">{{num_page}}</a>&nbsp;
+                    {% endif %}
+                {% endfor %}
+                {% endif %}
+            </p>
+            </div>
+            <!--pagination ends-->   
+        </div>
+
+    {% endblock content %}
+
+    
+    {% block JSblock %}
+        <script>
+        function FormShowHide(){
+            var link = document.getElementById('PlusMinus');   
+            var formDiv = document.getElementById('formDiv');
+            if (formDiv.style.display == 'none'){
+                formDiv.style.display = 'block';
+                link.innerHTML = '–';   
+            } else {
+                formDiv.style.display = 'none';
+                link.innerHTML = '+';    
+            }        
+        }
+        </script>
+    {% endblock JSblock %}

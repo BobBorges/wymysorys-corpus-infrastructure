@@ -1,0 +1,117 @@
+{% extends 'NWymC/base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+    {% block header %}
+        {{ form.media }}
+    {% endblock %}
+    
+    {% block abovemain %}
+    <div id="aboveMain">
+    <p style="text-align:right;margin-bottom:0;margin-right:20px;"><a href="{% url 'markup-reference' %}" target="_blank">{% translate 'Markup reference' %}</a></p>
+    <div class="row" style="width:100%; margin-left:0; margin-right:0;padding:0;">
+        <div class="col-6" style="padding:0; height:829px;overflow:auto;">
+            <div style="padding-left:10px; padding-right:5px;">
+            {% for A in assets %}
+    
+                {% if A.filetype == 'pdf' %}
+
+                    <iframe src="https://ispan.waw.pl/nespomila{{ A.file_instance.url }}" width="100%" height="750px"></iframe>
+
+                {% elif A.filetype == 'img' %}
+
+                    <img src="https://ispan.waw.pl/nespomila{{ A.file_instance.url }}" alt="no file" style="width:100%; margin-bottom:10px; border-style:solid;"/>
+
+                {% elif A.filetype == 'txt' %}
+
+                    <object data="https://ispan.waw.pl/nespomila{{ A.file_instance.url }}" style="width:100%; height:700px;border-style:solid;margin-bottom:10px;">
+                        txt file
+                    </object>
+
+                {% else %}
+
+                    <p style="width:100%; padding:10px; border-style:solid; margin-bottom:10px;">{% translate 'There&#39;s an asset of a type that cannnot be displayed:' %}&nbsp;
+                        {{ A.file_instance.name|slice:"13:" }}
+                    </p>
+    
+                {% endif %}
+    
+            {% endfor %}
+            </div>
+        </div>        
+       
+        <div class="col-6" style="padding:0;">
+            {% if not markup or markup.canedit == True %}
+ 
+            <div style="padding-left:5px;padding-right:10px;">
+                <form method="post">
+                    {% csrf_token %}
+                    <fieldset class="form-group" style="margin-bottom:0;">
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button name="save_markup" class="btn btn-success btn-block" type="submit">{% translate 'Save Markup' %}</button>               
+                    </div>
+                </form>
+
+                {% if markup %}
+                <button id="yellowButton" class="btn btn-warning btn-block" style="align:left;" onclick="finishFormShowHide();">{% translate 'Finish and Add Markup to Corpus' %}</button>
+    
+                <div id="finishForm" style="display:none;">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div style="margin:10px">
+                                <legend>{% translate 'Is the Markup really ready? Confirm that:' %}</legend>
+                                
+                                {{ submit_form|crispy }}
+                                
+                            </div>
+                                <button type="submit" name="submit_markup" class="btn btn-success btn-block">{% translate "It's ready! Add Markup to Corpus" %}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                {% endif %}
+        
+            {% else %}
+
+            <br>
+            <h2>{% translate "Markup locked" %}</h2>
+            <div class="content-section" style="margin-right:10px">
+                <p>
+                    {% translate 'The Markup for this document --' %}
+                    <a href="{% url 'document-meta' document.id %}">{{ document }}</a>
+                    {% translate ' --has been locked for editing. This means that the Markup has been submitted to the corpus administrators for inclusion in the wider corpus. It should, or will soon, appear among the other documents already included in the corpus.' %}
+                </p>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+    </div>  
+    {% endblock %}
+
+    {% block JSblock %}
+    <script>
+    var finishMarkup = '{% translate "Finish and Add Markup to Corpus" %}'; 
+    var nvrMind = '{% translate "Nevermind! The Markup is not ready yet" %}';
+    function finishFormShowHide(){
+        var finishform = document.getElementById('finishForm'); 
+        var yellowbutton = document.getElementById('yellowButton');
+        if (finishform.style.display == 'none') {
+            yellowbutton.innerHTML = nvrMind;   
+            finishform.style.display = 'block';
+        } else {
+            yellowbutton.innerHTML = finishMarkup;
+            finishform.style.display = 'none';
+        } 
+    }
+    
+    window.onload = function(){
+        var M = document.getElementById('pageMain');
+        M.style.height = "10px";
+        M.style.minHeight = "0";    
+    }   
+    </script>
+    {% endblock %}

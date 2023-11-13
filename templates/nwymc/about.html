@@ -1,0 +1,26 @@
+{% extends 'nwymc/base.html' %}
+{% load i18n %}
+
+    {% block content %}
+
+        <div class="col-lg-8 col-md-12">
+    
+            <h2 class="center">{% translate 'About the Corpus' %}</h2>
+
+            <p>{% translate 'This corpus was designed and instantiated under the auspices of the <i>New Speakers of Minority Languages: Proficiency, Variation, and Change</i> project, which received funding from the Norwegian Financial Mechanism 2014&ndash;2021 under agreement number 2020/37/K/HS2/02779' %}</p>
+
+            <h3>{% translate 'Contributions' %}</h3>
+
+                <p>
+                    <ul>
+                    {% for C in contributions %}
+                        <li>{{ C.contributor}}&nbsp;({{ C.start }}&ndash;{% if C.end != None %}{{ C.end }}{% else %}-{% endif %}): <i>{{ C.title }}</i>&nbsp;&mdash;&nbsp;{{ C.description }} </li>   
+                    {% endfor %}
+                    </ul>
+                </p>    
+
+        </div>
+    
+        {% include 'nwymc/sidebar_nav.html' %}
+
+    {% endblock content %}

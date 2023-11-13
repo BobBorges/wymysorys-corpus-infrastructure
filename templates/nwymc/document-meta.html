@@ -1,0 +1,372 @@
+{% extends 'nwymc/base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+    
+    {% block content %}
+
+        <div class="col-lg-1"></div>
+
+        <div class="col-lg-10 col-md-12">
+
+            <h2 class="center">{% translate 'Document metadata' %}</h2>
+    
+            <p>
+                <table>
+                    <tr>
+                        <td>{% translate 'Title:' %}</td>
+                        <td>{{ document.title }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% translate 'Author(s):' %}</td>
+                        <td>
+                        {% for author in document.authors.all %}
+                            {% if forloop.last %}
+                                {% if request.user.permission %}
+                                <a href="{% url 'nwymc-author-view' author.id %}">{{ author }}</a>
+                                {% else %}
+                                    {{ author }}
+                                {% endif %}
+                            {% else %}
+                                {% if request.user.permission %}
+                                <a href="{% url 'nwymc-author-view' author.id %}">{{ author }}</a><br>
+                                {% else %}
+                                    {{ author }}<br>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{% translate 'Year:' %}</td>
+                        <td>{{ document.prod_y }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% translate 'In Collection:'%}</td>
+                        <td>{{ document.incollection }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% translate 'Date Added:' %}</td>
+                        <td>{{ document.dateadded }}</td>
+                    <tr>
+                </table>
+            </p>
+            <hr>
+
+            <h3>{% translate 'Extended metadata' %}
+            {% if request.user.permission %}
+            {% if request.user.permission.level != 'public' %}
+                {% if document.documentextrametadata %}
+                    &nbsp;<button id="DEMeditButton" class="btn btn-outline-info btn-sm" onclick="DEMformShowHide()">{% translate 'Edit' %}</button>   
+                {% else %}
+                    &nbsp;<a id="DEMaddLink" href="javascript:void(0)" onclick="DEMformShowHide()" style="color:green;">+</a> 
+                {% endif %}
+            {% endif %} 
+            {% endif %}
+            </h3>
+
+            {% if request.user.permission %}
+            {% if request.user.permission.level != 'public' %}
+
+                <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                <div id="DEMformDiv" style="display:none;">
+                    <hr>
+                    <form method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            {{ DEMform|crispy }} 
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-outline-info btn-block" type="submit">{% translate 'Submit' %}</button>
+                        </div>
+                    </form>
+                    <hr>
+                </div> 
+                </div>    
+                </div>
+
+            {% endif %}
+            {% endif %}
+
+
+
+    
+            {% if document.documentextrametadata %}
+    
+            <div id="extraMetadataP">
+            <p>
+                <table>
+                    <tr>
+                        <td>{% translate 'Publisher:' %}</td>
+                        <td>{{ document.documentextrametadata.publisher|default_if_none:"-" }} </td>
+                    </tr>
+                    <tr>
+                        <td>{% translate 'Publisher Location:' %}</td>
+                        <td>{{ document.documentextrametadata.publisherlocation }}</td>
+                    </tr>
+                    {% if document.documentextrametadata.docid != None %}
+                    <tr>
+                        <td>{{ document.documentextrametadata.docidtype }}:</td>
+                        <td>{{ document.documentextrametadata.docid }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td>{% translate 'Persistent identifier:' %}</td>
+                        <td>-</td>
+                    </tr>
+                    {% endif %}
+                    <tr>
+                        <td>{% translate 'In publication:' %}</td>
+                        <td>{{ document.documentextrametadata.inpublication|default_if_none:"-" }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% translate 'Publication Volume:' %}</td>
+                        <td>{{ document.documentextrametadata.publicationvolume|default_if_none:"-" }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% translate 'Publication Issue:' %}</td>
+                        <td>{{ document.documentextrametadata.publicationissue|default_if_none:"-" }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% translate 'Page range:' %}</td>
+                        <td>{{ document.documentextrametadata.pagerange|default_if_none:"-" }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% translate 'URL:' %}</td>
+                        {% if document.documentextrametadata.url != None %}
+                        <td><a href="{{ document.documentextrametadata.url }}" target="_blank">{{ document.documentextrametadata.url }}</a></td>
+                        {% else %}
+                        <td>-</td>
+                        {% endif %}
+                    </tr>
+                </table
+            </p>
+            </div>
+    
+            {% else %}
+
+                <div id="extraMetadataP"><p>{% translate 'No additional metadata has been specified.' %}</p></div>  
+    
+            {% endif %}
+
+            <br>
+    
+            <h3>{% translate 'Descriptions' %}
+            {% if request.user.permission %}
+            {% if request.user.permission.level != 'public' %}
+                &nbsp;<a id="DDplusMinus" href="javascript:void(0)" onclick="DDformShowHide()" style="color:green;">+</a>
+            {% endif %}
+            {% endif %}
+            </h3>
+
+            {% if request.user.permission %}
+            {% if request.user.permission.level != 'public' %}
+            <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+            <div id="DDformDiv" style="display:none;">
+                <hr>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        {{ DDform|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info btn-block" type="submit">{% translate 'Submit' %}</button>
+                    </div>
+                </form>
+                <hr>
+            </div> 
+            </div>    
+            </div> 
+            {% endif %}
+            {% endif %}
+
+    
+            {% if document.description_objects %}   
+            <p>
+                <table>
+                 {% for D in document.description_objects %}
+                    <tr>
+                        <td>{{ D.language }}</td>
+                        <td><span id="DescrText_{{ forloop.counter }}">{{ D.description|linebreaksbr }}</span>  
+                            {% if request.user.permission %}
+                            {% if request.user.permission.level == 'worker' or request.user.permission.level == 'admin' %}
+                                <div id="EDform_{{ forloop.counter }}" style="display:none;">
+                                    <form method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <fieldset class="form-group">
+                                            {{ EDform|crispy }}
+                                            <input id="descr_pk" name="descr_pk" type="hidden" value="{{ D.pk }}">
+                                        </fieldset>
+                                        <div class="form-group" style="text-align:right;">
+                                            <button class="btn btn-outline-info btn-sm" type="reset" onclick="EDformShowHide({{ forloop.counter }})">{% translate 'Cancel' %}</button>
+                                            <button class="btn btn-outline-info btn-sm" type="submit">{% translate 'Submit' %}</button> 
+                                        </div>    
+                                    </form>   
+                                </div>  
+                                <p id="EDedit_{{ forloop.counter }}" style="width:100%; text-align:right;"><small><button class="btn btn-outline-info btn-sm" onclick="EDformShowHide({{ forloop.counter }})">{% translate 'Edit' %}</button></small></p>    
+                            {% endif %}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </p>
+            {% else %}
+
+                <p>{% translate 'There are no descriptions for this document.' %}</p>
+
+            {% endif %}
+
+            <br>
+            <h3>{% translate 'Assets' %}</h3>
+
+            {% if request.user.permission and request.user.permission.level != 'public' %}
+                {% if document.asset_set.all|length > 0 %}
+                <p>
+                    <table>
+                        <tr>
+                            <th>{% translate 'Filename' %}</th>
+                            <th>{% translate 'Type' %}</th>
+                            <th>{% translate 'Order in Document' %}</th>
+                            <th>{% translate 'Show in UI' %}</th>
+                        </tr>
+
+                        {% for A in document.asset_set.all %}
+                        <tr>
+                            <td><a href="{% url 'nwymc-asset-view' A.id %}">{{ A.file_instance|stringformat:"s"|slice:"13:" }}</a></td>
+                            <td>{{ A.filetype }}</td>
+                            <td>{{ A.order|default_if_none:"-" }}</td>
+                            <td>{{ A.showonui }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                {% else %}
+
+                    <p>{% translate 'No assets have been assigned to this document yet.' %}
+
+                {% endif %}
+
+            {% else %}
+                {% if document.asset_set.all|length > 0 %}
+                    <p>{% translate 'Assets associated with this document:' %}&nbsp;{{ N_assets }}</p>
+                {% else %}  
+                    <p>{% translate 'No assets have been assigned to this document yet.' %}
+                {% endif %}
+            {% endif %}
+    
+            <br>
+            <h3>{% translate 'Content status' %}</h3>
+
+            <h4>Markup</h4>
+            <p>
+            {% if document.documentmarkup %}
+                {% translate 'There is a Markup instance for this document. ' %}
+                {% if document.documentmarkup.canedit == True %}
+                    {% if request.user.permission %}
+                        {% if request.user.permission.level == 'worker' or request.user.permission.level == 'admin' %}
+                            {% translate 'The Markup can be edited '%}<a href="{% url 'nwymc-document-markup' document.id %}">{% translate 'here' %}</a>.
+                        {% else %}
+                            {% translate 'The team is still working on this markup.' %}
+                        {% endif %}
+                    {% else %}
+                        {% translate 'The team is still working on this markup.' %}
+                    {% endif %}
+                {% else %}
+                    {% translate 'The markup has been locked for editing.' %}
+                {% endif %}
+            {% else %}
+
+                {% translate 'No markup has been created for this document yet. ' %}
+                     {% if document.asset_set.all|length > 0 %}
+                       {% translate 'Start a markup document ' %}<a href="{% url 'nwymc-document-markup' document.id %}">{% translate 'here' %}</a>.
+                    {% else %}
+                        {% translate 'Assets must be assigned to the document before a markdown can be created.' %}
+                    {% endif %}
+            {% endif %} 
+            </p>
+
+            <h4>{% translate 'Ready in Corpus' %}</h4>
+    
+            <p>
+            {% if document.readyincorpus %}
+                {% translate 'The document is ready in the corpus. Results from this Document will appear in search results.' %}&nbsp;
+                {% if request.user.permission and request.user.permission.level != 'public' %}
+                    {% translate 'Browse the text ' %}<a href="{% url 'nwymc-document-content' document.id %}">{% translate 'here' %}</a>.
+                {% endif %}
+            {% else %}
+                {% translate 'The document is not yet ready in the corpus.' %}
+                {% if request.user.permission %}
+                {% if request.user.permission.level == 'worker' or request.user.permission.level == 'admin' %}
+                    &nbsp;{% translate  'Create/edit the markdown and when the markdown version looks complete, submit it for inclusion in the corpus.' %}
+                {% endif %}
+                {% endif %}
+            {% endif %}
+            </p>
+    
+        </div>
+
+    
+
+    {% endblock content %}
+
+
+    {% block JSblock %}
+        <script>
+        var cancel = "{% translate 'Cancel' %}";
+        var edit = "{% translate 'Edit' %}"   
+        function DDformShowHide(){
+            var DDlink = document.getElementById('DDplusMinus');    
+            var DDform = document.getElementById('DDformDiv'); 
+            if (DDform.style.display == 'none') {
+                DDform.style.display = 'block';
+                DDlink.innerHTML = '–'; 
+            } else { 
+                DDform.style.display = 'none';
+                DDlink.innerHTML = '+'; 
+            }      
+        }
+        function DEMformShowHide(){
+            var DEMaddLink = document.getElementById('DEMaddLink');
+            var DEMeditButton = document.getElementById('DEMeditButton');
+            var DEMform = document.getElementById('DEMformDiv');
+            var extraMP = document.getElementById('extraMetadataP') 
+            if (DEMform.style.display == 'none') {
+                DEMform.style.display = 'block';
+                if (DEMeditButton != null){ 
+                    DEMeditButton.innerHTML = cancel;
+                }
+                if (DEMaddLink != null){      
+                    DEMaddLink.innerHTML = '–';
+                }
+                extraMP.style.display = 'none';
+            } else {
+                DEMform.style.display = 'none';
+                if (DEMeditButton != null){ 
+                    DEMeditButton.innerHTML = edit;   
+                }
+                if (DEMaddLink != null){          
+                    DEMaddLink.innerHTML = '+';
+                }   
+                extraMP.style.display = 'block';
+            }         
+        }
+        function EDformShowHide(DNum){
+            var EDeditButton = document.getElementById(`EDedit_${DNum}`); 
+            var EDform = document.getElementById(`EDform_${DNum}`);   
+            var DescrDiv = document.getElementById(`DescrText_${DNum}`); 
+            if (EDform.style.display == 'none'){
+                DescrDiv.style.display = 'none';
+                EDform.style.display = 'block';
+                EDeditButton.style.display = 'none';
+                EDform.childNodes[1].childNodes[3].childNodes[1].childNodes[3].childNodes[1].defaultValue = DescrDiv.innerHTML;      
+            }else{
+                DescrDiv.style.display = 'block';
+                EDform.style.display = 'none';
+                EDeditButton.style.display = 'block';        
+            } 
+        }
+        </script>
+    {% endblock JSblock %}

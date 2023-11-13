@@ -1,0 +1,119 @@
+{% extends 'nwymc/base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+    {% block content %}
+
+        <div class="col-lg-1"></div>
+
+        <div class="col-lg-10 col-md-12">
+
+            <h2 class="center">{% translate 'Author overview' %}
+            {% if request.user.permission.level != 'public' %}
+                &nbsp;<a id="PlusMinus" href="javascript:void()" style="color:green;" onclick="FormShowHide()">+</a>
+            {% endif %}
+            </h2>
+
+            {% if request.user.permission.level != 'public' %}
+            <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+            <div id="formDiv" style="display:none;">
+                <form  method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info btn-block" type="submit">{% translate 'Submit' %}</button>
+                    </div>  
+                </form>  
+            </div>    
+            </div>    
+            </div>        
+            {% endif %}
+            <hr>
+    
+            <p>
+                <table>
+                    <tr>
+                        <th>{% translate 'Author' %}</th>
+                        <th>{% translate 'A.K.A' %}</th>
+                        <th>{% translate 'Year of Birth' %}</th>
+                        <th>{% translate 'Contributions' %}</th>
+                    </tr>
+                    {% for AO in author_objects %}
+                    <tr>
+                        <td><a href="{% url 'nwymc-author-view' AO.id %}">{{ AO }}</a></td>
+                        <td>
+                        {% if AO.alt_names != None %}
+                            {% for AN in AO.alt_names %}
+                                {% if forloop.last %}
+                                    {{ AN }}
+                                {% else %}
+                                    {{ AN }}<br>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            -
+                        {% endif %}
+                        </td>
+                        <td>
+                        {% if AO.DOB_y_priv == True %}
+                            -
+                        {% else %}
+                            {% if AO.DOB_y %}
+                                {{ AO.DOB_y }}
+                            {% else %}
+                                -
+                            {% endif %}
+                        {% endif %}
+                        </td>
+                        <td>
+                        {% for D in AO.document_set.all %}
+                            {% if forloop.last %}
+                                <a href="{% url 'nwymc-document-meta' D.id %}">{{ D }}</a>
+                            {% else %}
+                                <a href="{% url 'nwymc-document-meta' D.id %}">{{ D }}</a><br>
+                            {% endif %}
+                        {% endfor %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </p>
+            <hr>
+            <!--Pagination starts-->
+            <div class="pagination">
+                <p style="width:100%; text-align:center;">
+                {% if author_objects.paginator.num_pages > 1 %}
+                {% translate 'pages:' %}&nbsp;
+                {% for num_page in author_objects.paginator.page_range %} 
+                    {% if num_page == author_objects.number %}
+                        <u>{{num_page}}</u>&nbsp;
+                    {% else %}
+                        <a href="?page={{num_page}}">{{num_page}}</a>&nbsp;
+                    {% endif %}
+                {% endfor %}
+                {% endif %}
+            </p>
+            </div>
+            <!--pagination ends-->        
+        </div>
+
+    {% endblock content %}
+
+    {% block JSblock %}
+        <script>
+        function FormShowHide(){
+            var link = document.getElementById('PlusMinus');   
+            var formDiv = document.getElementById('formDiv');
+            if (formDiv.style.display == 'none'){
+                formDiv.style.display = 'block';
+                link.innerHTML = '–';   
+            } else {
+                formDiv.style.display = 'none';
+                link.innerHTML = '+';    
+            }        
+        }
+        </script>
+    {% endblock JSblock %}

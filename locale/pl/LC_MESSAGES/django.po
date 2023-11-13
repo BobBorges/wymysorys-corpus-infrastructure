@@ -1,0 +1,1593 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-07 13:21+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
+"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
+"%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+#: decorators.py:14
+msgid ""
+"Your user instance has not been assigned any permissions level to access "
+"this resource. If you think you should have or want to have access, get in "
+"touch with the site administrator(s)."
+msgstr ""
+"Konto użytkownika nie zostało przypisane na poziomie uprawnień w celu "
+"uzyskania dostępu do tego zasobu. Jeśli uważasz, że powinieneś mieć lub "
+"chcesz mieć dostęp, skontaktuj się z administratorem witryny. "
+
+#: decorators.py:26 decorators.py:38
+msgid "You're not authorized to see that."
+msgstr "Nie jesteś upoważniony do tego. "
+
+#: forms.py:19
+msgid "Select a file"
+msgstr "Wybierz plik "
+
+#: forms.py:20 templates/NWymC/document-meta.html:232
+msgid "Type"
+msgstr "Rodzaj "
+
+#: forms.py:21
+msgid "File will be publically viewable"
+msgstr "Plik będzie publicznie widoczny "
+
+#: forms.py:24
+msgid ""
+"Currently, text-type files are supported. Cooked text files like .doc and ."
+"ods are accepted but can't be displayed in the asset view. Admins might "
+"decide to convert such files to .pdf."
+msgstr ""
+"Obecnie obsługiwane są pliki typu tekstowego. ''Ugotowane'' pliki tekstowe, takie "
+"jak .doc i .ods, są akceptowane, ale nie można ich wyświetlić w podglądzie "
+"zasobów. Administratorzy mogą zdecydować o konwersji takich plików na .pdf. "
+
+#: forms.py:25
+msgid ""
+"If not selected, the asset will only be available to the site administrators."
+msgstr ""
+"Jeśli nie zostanie wybrany, zasób będzie dostępny tylko dla administratorów "
+"witryny. "
+
+#: forms.py:38
+msgid "Document"
+msgstr "Dokument "
+
+#: forms.py:39 models.py:527
+msgid "Order of Assets in Document"
+msgstr "Kolejność plików w dokumencie "
+
+#: forms.py:42
+msgid ""
+"The document instance must already be defined before an asset can be "
+"assigned. Go to the Documents page and create a document if a Document does "
+"not exist already for this asset."
+msgstr ""
+"Plik dokumentu musi być już zdefiniowany, zanim zasób zostanie "
+"przypisany. Przejdź do strony dokumentów i utwórz dokument, jeśli "
+"nie istnieje jeszcze dla tego zasobu. "
+
+#: forms.py:43
+msgid ""
+"If a document has more than one associated assets, you can specify the order "
+"of assets here (it will be the sort order on the markup page, for instance)."
+msgstr ""
+"Jeśli dokument ma więcej niż jeden powiązany plik, możesz określić "
+"kolejność plików (na przykład będzie to kolejność sortowania na stronie "
+"znaczników). "
+
+#: forms.py:78
+msgid "Surname"
+msgstr "Nazwisko "
+
+#: forms.py:82
+msgid "First name(s)"
+msgstr "Imię / imiona "
+
+#: forms.py:84
+msgid ""
+"Surname and First name(s) fields will become the newly created author's "
+"primary, publically visible alias."
+msgstr ""
+"Pola nazwiska i imienia staną się głównym, publicznie widocznym pseudonimem "
+"nowo utworzonego autora. "
+
+#: forms.py:87
+msgid "Author's Birth Year"
+msgstr "Rok urodzenia autora "
+
+#: forms.py:89
+msgid ""
+"If entered, the author's birth year will be publically visible on the site."
+msgstr ""
+"Rok urodzenia autora będzie publicznie widoczny "
+"na stronie, jeśli zostanie wprowadzony. "
+
+#: forms.py:103
+msgid "Alternate Surname"
+msgstr "Nazwisko alternatywne "
+
+#: forms.py:104
+msgid "Alternate First Name(s)"
+msgstr "Imiona alternatywne "
+
+#: forms.py:107
+msgid ""
+"If only surname or first name(s) are alternate, fill in the other as the "
+"same as the primary name."
+msgstr ""
+"Jeśli tylko nazwisko lub imię są aliasem, wypełnij drugie pole tak samo jak "
+"w nazwisku / imieniu podstawowym. "
+
+#: forms.py:121
+msgid ""
+"You can only make one Bio per language. Edit an existing Bio if one already "
+"exists in the language you want to use."
+msgstr ""
+"Możesz utworzyć tylko jeden biogram na język. Edytuj istniejący biogram, "
+"jeśli istnieje już w języku, którego chcesz użyć. "
+
+#: forms.py:137 templates/NWymC/author-view.html:146
+#: templates/NWymC/document-overview.html:43
+msgid "Title"
+msgstr "Tytuł "
+
+#: forms.py:138 templates/NWymC/document-overview.html:45
+msgid "Author(s)"
+msgstr "Autor(zy) "
+
+#: forms.py:139
+msgid "Publication or production year"
+msgstr "Publikacja lub rok produkcji "
+
+#: forms.py:140
+msgid "Manual Document ID"
+msgstr "Ręcznie nadany identyfikator dokumentu "
+
+#: forms.py:143
+msgid ""
+"Authors must be defined before their documents. If you don't see your "
+"document's author, head over to the Authors page and create one. Hold the "
+"ctrl button while you click to select multiple authors."
+msgstr ""
+"Autorzy muszą zostać określeni przed swoimi dokumentami. Jeśli nie widzisz "
+"autora swojego dokumentu, przejdź do strony autorów i utwórz ją. Przytrzymaj "
+"przycisk CTRL podczas klikania, aby wybrać wielu autorów. "
+
+#: forms.py:144
+msgid "If you don't know what this is, just leave it blank."
+msgstr "Jeśli nie wiesz, co to jest, po prostu zostaw to puste. "
+
+#: forms.py:163 models.py:357
+msgid "Publisher"
+msgstr "Wydawca "
+
+#: forms.py:164
+msgid "Publisher location"
+msgstr "Lokalizacja wydawcy "
+
+#: forms.py:165 models.py:375
+msgid "Document ID type"
+msgstr "Typ identyfikatora dokumentu "
+
+#: forms.py:166 models.py:369
+msgid "Document ID"
+msgstr "Identyfikator dokumentu "
+
+#: forms.py:167
+msgid "In publication"
+msgstr "W publikacji "
+
+#: forms.py:168
+msgid "Publication volume"
+msgstr "Tom publikacji "
+
+#: forms.py:169
+msgid "Publication issue"
+msgstr "Numer publikacji "
+
+#: forms.py:170
+msgid "Page range"
+msgstr "Zakres stron "
+
+#: forms.py:174
+msgid ""
+"Use this field if the Document was part of a book with many authors or "
+"published in a magazine or journal."
+msgstr ""
+"Skorzystaj z tego pola, jeśli dokument był częścią książki z wieloma autorami "
+"lub był opublikowany w czasopiśmie lub magazynie. "
+
+#: forms.py:175
+msgid ""
+"Separate pages with two hyphens, e.g. 4--8. Use a comma to separate multiple "
+"page ranges, e.g. 4--7, 9--12."
+msgstr ""
+"Oddzielaj strony dwoma myślnikami, np. 4--8. Użyj przecinka, aby oddzielić "
+"wiele stron, np. 4--7, 9--12. "
+
+#: forms.py:189
+msgid ""
+"You can only make one description per language. Edit the existing one if it "
+"exists."
+msgstr ""
+"Możesz zrobić tylko jeden opis na język. Edytuj istniejący, jeśli istnieje. "
+
+#: forms.py:198
+msgid "You should only edit one description at a time. Save after each edit."
+msgstr ""
+"Powinieneś edytować tylko jeden opis na raz. Zapisz po każdej edycji. "
+
+#: forms.py:210
+msgid "You should only edit one Bio at a time. Save after each edit."
+msgstr ""
+"Powinieneś edytować tylko jednen biogram na raz. Zapisz po każdej edycji. "
+
+#: forms.py:221
+msgid "All changes have been saved changes with the \"Save Markup\" button."
+msgstr ""
+"Wszystkie zmiany zostały zapisane za pomocą przycisku \"Zapisz znacznik\". "
+
+#: forms.py:222
+msgid ""
+"If you have edited the markup field and not yet saved the changes, "
+"submitting to the corpus now will submit the Markup version before the "
+"changes you made and your work will be lost. click the \"Save Markup\" "
+"button now if you are not sure."
+msgstr ""
+"Jeśli edytowałeś/-aś pole znaczników i jeszcze nie zapisałeś zmian, przesłanie "
+"do korpusu przesyła wersję znaczników przed wprowadzonymi zmianami, a Twoja "
+"praca zostanie utracona. Kliknij przycisk \"Zapisz znacznik\" teraz, jeśli "
+"nie jesteś pewien. "
+
+#: forms.py:227
+msgid "All text from media file(s) (left) is represented in the Markup."
+msgstr ""
+"Cały tekst z plików multimedialnych (po lewej) jest reprezentowany w znaczniku. "
+
+#: forms.py:232
+msgid ""
+"Basic formatting --bold, italic, underline, strikethrough-- is represented "
+"in the Markup."
+msgstr ""
+"Podstawowe formatowanie --pogrubienie, kursywa, podkreślenie, przekreślenie-- "
+"jest reprezentowane w znaczniku. "
+
+#: forms.py:237
+msgid ""
+"All fragments have a defined language using the &lt;SET language=\"\"/&gt; "
+"tag"
+msgstr ""
+"Wszystkie fragmenty mają zdefiniowany język za pomocą etykiety &lt;SET language=\"\"/"
+"&gt; "
+
+#: forms.py:242
+msgid ""
+"In documents with multi-page media, all page breaks are represented with the "
+"&lt;ENDPAGE nr=\"\"/&gt; tag."
+msgstr ""
+"W dokumentach z multimediami z wielu stron wszystkie przerwy strony są "
+"reprezentowane za pomocą etykiety &lt;EndPage nr=\"\"/&gt; . "
+
+#: forms.py:247
+#, fuzzy
+#| msgid ""
+#| "Marginal, header, and footer text is enclosed in the &lt;MARGIN loc=\"\" "
+#| "type=\"\"&gt;&lt;/MARGIN&gt; tag."
+msgid ""
+"Marginal, header, and footer text is enclosed in the &lt;MARGIN loc=\"\"&gt;"
+"&lt;/MARGIN&gt; tag."
+msgstr ""
+"Tekst marginesu, nagłówka i stopki jest załączony w etykiecie &ly;MARGIN loc="
+"\"\"&gt;&lt;/MARGIN&gt; . "
+
+#: forms.py:260
+msgid "Search in these document only"
+msgstr "Wyszukaj tylko w tych dokumentach "
+
+#: forms.py:263
+msgid "If not selected, the term will be searched in all documents' text only."
+msgstr ""
+"hasło będzie wyszukiwane tylko we wszystkich "
+"tekstach dokumentów, jeśli nie zostanie wybrane.  "
+
+#: forms.py:267
+msgid "Search Term"
+msgstr "Szukane hasło "
+
+#: forms.py:269
+msgid ""
+"By default, the search is case insensitive. If you have a case sensitive "
+"issue to search for, use the regex option."
+msgstr ""
+"Domyślnie wyszukiwanie jest obojętne na przypadki. Jeśli masz do wyszukania hasło "
+"w określonym przypadku, użyj opcji Regex. "
+
+#: forms.py:272
+msgid "Return results annotated as language"
+msgstr "Wyszukaj wyniki opisane jako język "
+
+#: forms.py:275
+msgid ""
+"Hold down 'ctrl' key to select multiple or deselect. No selection will "
+"search all languages. This option doesn't apply in Document title searches."
+msgstr ""
+"Przytrzymaj przycisk „Ctrl”, aby wybrać wiele lub odznaczyć. Brak wyboru "
+"spowoduje wyszukiwanie we wszystkich językach. Ta opcja nie ma zastosowania w wyszukiwaniu "
+"tytułu dokumentów. "
+
+#: forms.py:278
+msgid "Regular Expression Search"
+msgstr "Wyszukiwanie wyrażeń regularnych (Regex) "
+
+#: forms.py:281
+msgid ""
+"The regex search option nulifies 'whole word' and 'ignore formatting' "
+"options. If you want to use regex searches, you can write them into your own "
+"regex."
+msgstr ""
+"Opcja wyszukiwania Regex anuluje opcje „całe słowo” i „ignoruj "
+"formatowanie”. Jeśli chcesz korzystać z wyszukiwania Regex, możesz "
+"je dopisać do własnego Regexu. "
+
+#: forms.py:284
+msgid "Search for whole words (only)"
+msgstr "Wyszukaj całe słowa (tylko) "
+
+#: forms.py:289
+msgid "Find words that break accross a line"
+msgstr "Znajdź słowa, które są częściowo przeniesione do kolejnej linijki "
+
+#: models.py:10 models.py:17
+msgid "Polish"
+msgstr "Polski "
+
+#: models.py:11 models.py:18
+msgid "English"
+msgstr "Angielski "
+
+#: models.py:12 models.py:19
+msgid "Wymysorys"
+msgstr "Wilamowski"
+
+#: models.py:13 models.py:20
+msgid "German"
+msgstr "Niemiecki "
+
+#: models.py:21
+msgid "TX, Polish-Wymysorys"
+msgstr "TX, Polski-Wilamowski"
+
+#: models.py:22
+msgid "TX, English-Wymysorys"
+msgstr "TX, Angielski-Wilamowski "
+
+#: models.py:23
+msgid "TX, German-Wymysorys"
+msgstr "TX, Niemiecki-Wilamowski "
+
+#: models.py:27
+msgid "pdf document"
+msgstr "Dokument PDF "
+
+#: models.py:28
+msgid "image"
+msgstr "obraz "
+
+#: models.py:29
+msgid "doc or other cooked text"
+msgstr "DOC lub inny tekst ''ugotowany'' "
+
+#: models.py:30
+msgid "plain txt"
+msgstr "zwykły txt "
+
+#: models.py:39
+msgid "bottom-left"
+msgstr "u dołu z lewej "
+
+#: models.py:40
+msgid "bottom-right"
+msgstr "u dołu z prawej "
+
+#: models.py:41
+msgid "bottom"
+msgstr "na dole "
+
+#: models.py:42
+msgid "top-left"
+msgstr "u góry z lewej "
+
+#: models.py:43
+msgid "top-right"
+msgstr "w prawym górnym rogu "
+
+#: models.py:44
+msgid "top"
+msgstr "Top "
+
+#: models.py:45
+msgid "left"
+msgstr "na lewo "
+
+#: models.py:46
+msgid "right"
+msgstr "na prawo "
+
+#: models.py:54 templates/NWymC/author-view.html:16
+msgid "Birth Year"
+msgstr "Rok urodzenia "
+
+#: models.py:59
+msgid "Birth Month"
+msgstr "Miesiąc urodzenia "
+
+#: models.py:64
+msgid "Birth Day"
+msgstr "Dzień urodzenia "
+
+#: models.py:69
+msgid "Private Birth Year"
+msgstr "Rok urodzenia (poufne)"
+
+#: models.py:73
+msgid "Private Birth Month"
+msgstr "Miesiąc urodzenia (poufne)"
+
+#: models.py:77
+msgid "Private Birth Day"
+msgstr "Dzień urodzenia (poufne)"
+
+#: models.py:81 templates/NWymC/author-view.html:27
+msgid "Death Year"
+msgstr "Rok śmierci "
+
+#: models.py:86
+msgid "Death Month"
+msgstr "Miesiąc śmierci "
+
+#: models.py:91
+msgid "Death Day"
+msgstr "Dzień śmierci "
+
+#: models.py:96
+msgid "Private Death Year"
+msgstr "Rok śmierci (poufne)"
+
+#: models.py:100
+msgid "Private Death Month"
+msgstr "Miesiąc śmierci (poufne)"
+
+#: models.py:104
+msgid "Private Death Day"
+msgstr "Dzień śmierci (poufne)"
+
+#: models.py:108 models.py:300 templates/NWymC/asset-overview.html:45
+msgid "Date Added"
+msgstr "Data dodania "
+
+#: models.py:160
+msgid "Language of Bio"
+msgstr "Język biogramu "
+
+#: models.py:165
+msgid "Private Bio"
+msgstr "Prywatny biogram "
+
+#: models.py:190
+msgid "Author First Name(s)"
+msgstr "Pierwsze imiona autora "
+
+#: models.py:194
+msgid "Author Surname"
+msgstr "Nazwisko autora "
+
+#: models.py:206
+msgid "Name of Contributor"
+msgstr "Nazwa współtwórcy "
+
+#: models.py:210
+msgid "Website and / or orcid"
+msgstr "Strona internetowa i / lub orcid "
+
+#: models.py:238
+msgid "Start of Contribution"
+msgstr "Początek edycji "
+
+#: models.py:242
+msgid "End of Contribution"
+msgstr "Koniec edycji "
+
+#: models.py:248
+msgid "Title of Contribution"
+msgstr "Tytuł edycji "
+
+#: models.py:261
+msgid "Collection Name"
+msgstr "Nazwa kolekcji "
+
+#: models.py:282
+msgid "Title of Document"
+msgstr "Tytuł dokumentu "
+
+#: models.py:294
+msgid "Manual doc ID"
+msgstr "Ręczny dokument "
+
+#: models.py:304
+msgid "Production Year"
+msgstr "Rok produkcji "
+
+#: models.py:309
+msgid "Production Month"
+msgstr "Miesiąc produkcji "
+
+#: models.py:314
+msgid "Production Day"
+msgstr "Dzień produkcji "
+
+#: models.py:319
+msgid "Document Ready in Corpus"
+msgstr "Dokument gotowy w korpusie "
+
+#: models.py:363
+msgid "Publisher Location"
+msgstr "Lokalizacja wydawcy "
+
+#: models.py:382
+msgid "In Publication (journal, volume)"
+msgstr "W publikacji (czasopismo, tom) "
+
+#: models.py:388
+msgid "Volume"
+msgstr "Tom "
+
+#: models.py:393
+msgid "Issue"
+msgstr "Numer "
+
+#: models.py:398
+msgid "Page Range"
+msgstr "Zakres stron "
+
+#: models.py:404
+msgid "Publication / Document URL"
+msgstr "URL publikacji / dokumentu "
+
+#: models.py:422
+msgid "Language of Description"
+msgstr "Język opisu "
+
+#: models.py:458
+msgid "Order of Paragraphs in Document"
+msgstr "Kolejność akapitów w dokumencie "
+
+#: models.py:478
+msgid "Order of Fragments in Document"
+msgstr "Kolejność fragmentów w dokumencie "
+
+#: models.py:483
+msgid "Language of Fragment"
+msgstr "Język fragmentu "
+
+#: models.py:503
+msgid "Location of Text"
+msgstr "Lokalizacja tekstu "
+
+#: models.py:517
+msgid "File Instance"
+msgstr "Plik "
+
+#: models.py:522
+msgid "File Type"
+msgstr "Typ pliku "
+
+#: models.py:538
+msgid "Show on UI"
+msgstr "Pokaż na interfejsie użytkownika "
+
+#: models.py:557
+msgid "General Public"
+msgstr "Ogół społeczeństwa "
+
+#: models.py:558
+msgid "Contributor"
+msgstr "Współpracownik "
+
+#: models.py:559
+msgid "Worker"
+msgstr "Pracownik "
+
+#: models.py:560
+msgid "Admin"
+msgstr "Admin "
+
+#: models.py:571
+msgid "Permissions Level"
+msgstr "Poziom uprawnień "
+
+#: templates/NWymC/about.html:8
+msgid "About the Corpus"
+msgstr "O korpusie "
+
+#: templates/NWymC/about.html:10
+msgid ""
+"This corpus was designed and instantiated under the auspices of the <i>New "
+"Speakers of Minority Languages: Proficiency, Variation, and Change</i> "
+"project, which received funding from the Norwegian Financial Mechanism "
+"2014&ndash;2021 under agreement number 2020/37/K/HS2/02779"
+msgstr ""
+"Ten korpus został zaprojektowany i utworzony pod auspicjami projektu <i>Nowi użytkownicy "
+"języków mniejszościowych: biegłość, odmiana i procesy zmian </i>, który "
+"otrzymał finansowanie z norweskiego mechanizmu finansowego 2014 i ndash; "
+"2021 na podstawie umowy nr 2020/37/K/HS2/02779 "
+
+#: templates/NWymC/about.html:12 templates/NWymC/author-overview.html:42
+#: templates/NWymC/author-view.html:141
+msgid "Contributions"
+msgstr "Składki "
+
+#: templates/NWymC/asset-overview.html:11
+msgid "Asset overview"
+msgstr "Przegląd plików "
+
+#: templates/NWymC/asset-overview.html:28 templates/NWymC/asset-view.html:53
+#: templates/NWymC/author-overview.html:27 templates/NWymC/author-view.html:70
+#: templates/NWymC/author-view.html:99 templates/NWymC/author-view.html:125
+#: templates/NWymC/document-meta.html:81 templates/NWymC/document-meta.html:176
+#: templates/NWymC/document-meta.html:205
+#: templates/NWymC/document-overview.html:30
+msgid "Submit"
+msgstr "Dodaj "
+
+#: templates/NWymC/asset-overview.html:43 templates/NWymC/asset-view.html:17
+#: templates/NWymC/document-meta.html:231
+msgid "Filename"
+msgstr "Nazwa pliku "
+
+#: templates/NWymC/asset-overview.html:44
+msgid "In Document"
+msgstr "W dokumencie "
+
+#: templates/NWymC/asset-overview.html:46
+msgid "Shown in UI"
+msgstr "Pokazane w interfejsie użytkownika "
+
+#: templates/NWymC/asset-overview.html:54
+msgid "unassigned"
+msgstr "nieprzypisany "
+
+#: templates/NWymC/asset-overview.html:68
+#: templates/NWymC/author-overview.html:89
+#: templates/NWymC/document-content.html:75
+#: templates/NWymC/document-overview.html:76 templates/NWymC/search.html:67
+msgid "pages:"
+msgstr "strony: "
+
+#: templates/NWymC/asset-view.html:11
+msgid "Asset: id#"
+msgstr "Plik: id# "
+
+#: templates/NWymC/asset-view.html:21
+msgid "Assigned to document:"
+msgstr "Przypisany do dokumentu: "
+
+#: templates/NWymC/asset-view.html:25
+msgid "False"
+msgstr "Fałszywy "
+
+#: templates/NWymC/asset-view.html:27 templates/NWymC/asset-view.html:76
+msgid "assign"
+msgstr "przydziel "
+
+#: templates/NWymC/asset-view.html:32 templates/NWymC/document-meta.html:48
+msgid "Date Added:"
+msgstr "Data dodania: "
+
+#: templates/NWymC/asset-view.html:36
+msgid "Shown in UI:"
+msgstr "Pokazane w interfejsie użytkownika: "
+
+#: templates/NWymC/asset-view.html:75
+msgid "hide form"
+msgstr "ukryj formę "
+
+#: templates/NWymC/author-overview.html:10
+msgid "Author overview"
+msgstr "Przegląd autora "
+
+#: templates/NWymC/author-overview.html:39
+msgid "Author"
+msgstr "Autor "
+
+#: templates/NWymC/author-overview.html:40
+msgid "A.K.A"
+msgstr "Znany jako "
+
+#: templates/NWymC/author-overview.html:41
+msgid "Year of Birth"
+msgstr "Rok urodzenia "
+
+#: templates/NWymC/author-view.html:11
+msgid "Author: "
+msgstr "Autor: "
+
+#: templates/NWymC/author-view.html:19 templates/NWymC/author-view.html:30
+msgid "private information"
+msgstr "informacja prywatna"
+
+#: templates/NWymC/author-view.html:37
+msgid "Alternative Names"
+msgstr "Alternatywne nazwy "
+
+#: templates/NWymC/author-view.html:80
+msgid "Author Bios"
+msgstr "Biogramy autora "
+
+#: templates/NWymC/author-view.html:124 templates/NWymC/document-meta.html:204
+#: templates/NWymC/document-meta.html:318
+msgid "Cancel"
+msgstr "Anuluj "
+
+#: templates/NWymC/author-view.html:129 templates/NWymC/document-meta.html:59
+#: templates/NWymC/document-meta.html:209
+#: templates/NWymC/document-meta.html:319
+msgid "Edit"
+msgstr "Edytuj "
+
+#: templates/NWymC/author-view.html:137
+msgid "No Bios have been defined for this author."
+msgstr "Dla tego autora nie zdefiniowano biogramu. "
+
+#: templates/NWymC/author-view.html:147
+#: templates/NWymC/document-overview.html:44
+msgid "Year"
+msgstr "Rok "
+
+#: templates/NWymC/author-view.html:148
+msgid "Description"
+msgstr "Opis "
+
+#: templates/NWymC/author-view.html:172
+msgid "No docs have been assigned to this author."
+msgstr "Żadne dokumenty nie zostały przypisane do tego autora. "
+
+#: templates/NWymC/base.html:97 templates/NWymC/sidebar_nav.html:7
+msgid "Navigation"
+msgstr "Nawigacja "
+
+#: templates/NWymC/base.html:101
+msgid "Corpus Home"
+msgstr "Corpus Home "
+
+#: templates/NWymC/base.html:104
+msgid "Search Corpus"
+msgstr "Wyszukaj w korpusie "
+
+#: templates/NWymC/base.html:107 templates/NWymC/sidebar_nav.html:13
+msgid "Documents"
+msgstr "Dokumenty "
+
+#: templates/NWymC/base.html:110 templates/NWymC/sidebar_nav.html:14
+msgid "Authors"
+msgstr "Autorzy "
+
+#: templates/NWymC/base.html:113 templates/NWymC/document-meta.html:224
+#: templates/NWymC/sidebar_nav.html:15
+msgid "Assets"
+msgstr "Pliki "
+
+#: templates/NWymC/base.html:121
+msgid "About"
+msgstr "O Korpusie"
+
+#: templates/NWymC/base.html:132
+msgid "Profile"
+msgstr "Profil "
+
+#: templates/NWymC/base.html:135
+msgid "Log out"
+msgstr "Wyloguj "
+
+#: templates/NWymC/base.html:139
+msgid "Log in"
+msgstr "Zaloguj się "
+
+#: templates/NWymC/base.html:142
+msgid "Register"
+msgstr "Zarejestruj się "
+
+#: templates/NWymC/base.html:208
+msgid "National Science Centre"
+msgstr "Narodowe Centrum Nauki "
+
+#: templates/NWymC/base.html:210
+msgid "Privacy Policy"
+msgstr "Polityka prywatności "
+
+#: templates/NWymC/concurrency-error.html:6
+msgid "Oh No!!! Concurrency Error"
+msgstr "O nie!!! Błąd współbieżności "
+
+#: templates/NWymC/concurrency-error.html:11
+msgid ""
+"Someone opened, edited, and saved this Markup Object since you started "
+"working on it. That means if your edits are saved to the database, theirs "
+"will be overwritten. Nobody wants that."
+msgstr ""
+"Ktoś otworzył, zredagował i zapisał ten obiekt znaczników, odkąd zacząłeś/-ęłaś "
+"nad nim pracować. Oznacza to, że jeśli twoje edycje zostaną zapisane w bazie "
+"danych, ichnie zostaną zastąpione. Nikt tego nie chce. "
+
+#: templates/NWymC/concurrency-error.html:13
+msgid "You are"
+msgstr "Jesteś "
+
+#: templates/NWymC/concurrency-error.html:13
+msgid "version(s) behind the database."
+msgstr "wersja za bazą danych. "
+
+#: templates/NWymC/concurrency-error.html:15
+msgid ""
+"Just below here you can see a line-by-line comparison of the database "
+"version of the markup and the version you submitted just now. Lines that are "
+"not the same a highlighted in red under the \"Your submission\" column to "
+"help you visualize where there are discrepancies."
+msgstr ""
+"Tuż poniżej widać porównanie linii po linii wersji bazy danych znacznika i "
+"przesłanej właśnie teraz wersji. Linie, które nie są takie same, "
+"podświetlone na czerwono w kolumnie \"Twoje zgłoszenie\", aby pomóc Ci "
+"wizualizować, gdzie istnieją rozbieżności. "
+
+#: templates/NWymC/concurrency-error.html:17
+msgid "When you are ready to re-submit your edits, click"
+msgstr "Kiedy będziesz gotowy na ponowne przesłanie swoich edycji, kliknij "
+
+#: templates/NWymC/concurrency-error.html:17
+#: templates/NWymC/document-meta.html:270
+#: templates/NWymC/document-meta.html:284
+#: templates/NWymC/document-meta.html:297
+msgid "here"
+msgstr "tutaj "
+
+#: templates/NWymC/concurrency-error.html:17
+msgid ""
+"A new tab will open with the previous form loaded with an up-to-date Markup "
+"instance."
+msgstr ""
+"Nowa karta zostanie otwarta z poprzednim formularzem załadowanym z aktualnymi "
+"znacznikami. "
+
+#: templates/NWymC/concurrency-error.html:28
+msgid "Database version"
+msgstr "Wersja bazy danych "
+
+#: templates/NWymC/concurrency-error.html:40
+msgid "Your submission"
+msgstr "Twoje zgłoszenie "
+
+#: templates/NWymC/document-content.html:18
+msgid "Document content: "
+msgstr "Treść dokumentu: "
+
+#: templates/NWymC/document-content.html:90
+msgid ""
+"This document is not ready for viewing in the corpus.<br> If you have "
+"sufficient permissions, check out the document assets and consider creating "
+"a markup version!"
+msgstr ""
+"Ten dokument nie jest gotowy do obejrzenia w korpusie.<br>Jeśli masz "
+"wystarczające uprawnienia, sprawdź zasoby dokumentów i rozważ utworzenie "
+"wersji znaczników! "
+
+#: templates/NWymC/document-markup.html:11
+#: templates/NWymC/markup-reference.html:10
+msgid "Markup reference"
+msgstr "Odniesienie do znaczników "
+
+#: templates/NWymC/document-markup.html:33
+msgid "There&#39;s an asset of a type that cannnot be displayed:"
+msgstr "Jest tu zasób typu, którego nie można wyświetlić: "
+
+#: templates/NWymC/document-markup.html:53
+msgid "Save Markup"
+msgstr "Zapisz znaczniki "
+
+#: templates/NWymC/document-markup.html:58
+#: templates/NWymC/document-markup.html:97
+msgid "Finish and Add Markup to Corpus"
+msgstr "Zakończ i dodaj znaczniki do korpusu "
+
+#: templates/NWymC/document-markup.html:65
+msgid "Is the Markup really ready? Confirm that:"
+msgstr "Czy znacznik jest naprawdę gotowy? Potwierdź to: "
+
+#: templates/NWymC/document-markup.html:70
+msgid "It's ready! Add Markup to Corpus"
+msgstr "Gotowe! Dodaj znaczniki do korpusu "
+
+#: templates/NWymC/document-markup.html:80
+msgid "Markup locked"
+msgstr "Znacznik zamknięty "
+
+#: templates/NWymC/document-markup.html:83
+msgid "The Markup for this document --"
+msgstr "Znacznik dla tego dokumentu - "
+
+#: templates/NWymC/document-markup.html:85
+msgid ""
+" --has been locked for editing. This means that the Markup has been "
+"submitted to the corpus administrators for inclusion in the wider corpus. It "
+"should, or will soon, appear among the other documents already included in "
+"the corpus."
+msgstr ""
+"---został zamknięty dla edycji. Oznacza to, że znaczniki zostały przekazane "
+"administratorom korpusu w celu włączenia do szerszego korpusu. Powinien lub "
+"wkrótce pojawi się wśród innych dokumentów zawartych w korpusie. "
+
+#: templates/NWymC/document-markup.html:98
+msgid "Nevermind! The Markup is not ready yet"
+msgstr "Upsik! Znacznik nie jest jeszcze gotowy "
+
+#: templates/NWymC/document-meta.html:11
+msgid "Document metadata"
+msgstr "Metadane dokumentu"
+
+#: templates/NWymC/document-meta.html:16
+msgid "Title:"
+msgstr "Tytuł: "
+
+#: templates/NWymC/document-meta.html:20
+msgid "Author(s):"
+msgstr "Autor / autorzy: "
+
+#: templates/NWymC/document-meta.html:40
+msgid "Year:"
+msgstr "Rok: "
+
+#: templates/NWymC/document-meta.html:44
+msgid "In Collection:"
+msgstr "W kolekcji: "
+
+#: templates/NWymC/document-meta.html:55
+msgid "Extended metadata"
+msgstr "Rozszerzone metadane "
+
+#: templates/NWymC/document-meta.html:101
+msgid "Publisher:"
+msgstr "Wydawca: "
+
+#: templates/NWymC/document-meta.html:105
+msgid "Publisher Location:"
+msgstr "Lokalizacja wydawcy: "
+
+#: templates/NWymC/document-meta.html:115
+msgid "Persistent identifier:"
+msgstr "Trwały identyfikator: "
+
+#: templates/NWymC/document-meta.html:120
+msgid "In publication:"
+msgstr "W publikacji: "
+
+#: templates/NWymC/document-meta.html:124
+msgid "Publication Volume:"
+msgstr "Tom publikacji: "
+
+#: templates/NWymC/document-meta.html:128
+msgid "Publication Issue:"
+msgstr "Numer publikacji: "
+
+#: templates/NWymC/document-meta.html:132
+msgid "Page range:"
+msgstr "Zakres stron: "
+
+#: templates/NWymC/document-meta.html:136
+msgid "URL:"
+msgstr "URL: "
+
+#: templates/NWymC/document-meta.html:149
+msgid "No additional metadata has been specified."
+msgstr "Nie określono żadnych dodatkowych metadanych. "
+
+#: templates/NWymC/document-meta.html:155
+msgid "Descriptions"
+msgstr "Opisy "
+
+#: templates/NWymC/document-meta.html:219
+msgid "There are no descriptions for this document."
+msgstr "Nie ma opisów tego dokumentu. "
+
+#: templates/NWymC/document-meta.html:233
+msgid "Order in Document"
+msgstr "Kolejność w dokumencie "
+
+#: templates/NWymC/document-meta.html:234
+msgid "Show in UI"
+msgstr "Pokaż w interfejsie użytkownika "
+
+#: templates/NWymC/document-meta.html:248
+#: templates/NWymC/document-meta.html:256
+msgid "No assets have been assigned to this document yet."
+msgstr "Do tego dokumentu nie przypisano jeszcze żadnych plików. "
+
+#: templates/NWymC/document-meta.html:254
+msgid "Assets associated with this document:"
+msgstr "Pliki powiązane z tym dokumentem: "
+
+#: templates/NWymC/document-meta.html:261
+msgid "Content status"
+msgstr "Status treści "
+
+#: templates/NWymC/document-meta.html:266
+msgid "There is a Markup instance for this document. "
+msgstr "Istnieją znaczniki dla tego dokumentu. "
+
+#: templates/NWymC/document-meta.html:270
+msgid "The Markup can be edited "
+msgstr "Znaczniki można edytować "
+
+#: templates/NWymC/document-meta.html:272
+#: templates/NWymC/document-meta.html:275
+msgid "The team is still working on this markup."
+msgstr "Zespół wciąż pracuje nad tym znacznikiem. "
+
+#: templates/NWymC/document-meta.html:278
+msgid "The markup has been locked for editing."
+msgstr "Znaczniki zostały wyłączone z edycji. "
+
+#: templates/NWymC/document-meta.html:282
+msgid "No markup has been created for this document yet. "
+msgstr "Dla tego dokumentu nie utworzono jeszcze znaczników. "
+
+#: templates/NWymC/document-meta.html:284
+msgid "Start a markup document "
+msgstr "Rozpocznij dokument ze znacznikami "
+
+#: templates/NWymC/document-meta.html:286
+msgid ""
+"Assets must be assigned to the document before a markdown can be created."
+msgstr "Pliki należy przypisać do dokumentu przed utworzeniem oznaczenia. "
+
+#: templates/NWymC/document-meta.html:291
+msgid "Ready in Corpus"
+msgstr "Gotowy w korpusie "
+
+#: templates/NWymC/document-meta.html:295
+msgid ""
+"The document is ready in the corpus. Results from this Document will appear "
+"in search results."
+msgstr ""
+"Dokument jest gotowy w korpusie. Wyniki tego dokumentu pojawią się w "
+"wynikach wyszukiwania. "
+
+#: templates/NWymC/document-meta.html:297
+msgid "Browse the text "
+msgstr "Przeglądaj tekst "
+
+#: templates/NWymC/document-meta.html:300
+msgid "The document is not yet ready in the corpus."
+msgstr "Dokument nie jest jeszcze gotowy w korpusie. "
+
+#: templates/NWymC/document-meta.html:303
+msgid ""
+"Create/edit the markdown and when the markdown version looks complete, "
+"submit it for inclusion in the corpus."
+msgstr ""
+"Utwórz/edytuj oznaczenia, a gdy wersja oznaczeń wygląda na kompletną, prześlij "
+"ją, aby ją włączyć do korpusu. "
+
+#: templates/NWymC/document-overview.html:10
+msgid "Document overview"
+msgstr "Przegląd dokumentu "
+
+#: templates/NWymC/document-overview.html:46
+msgid "In Collection"
+msgstr "W kolekcji "
+
+#: templates/NWymC/document-overview.html:47
+msgid "Ready in corpus"
+msgstr "Gotowy w korpusie "
+
+#: templates/NWymC/document-overview.html:48
+msgid "N Assets"
+msgstr "Ilość plików "
+
+#: templates/NWymC/landing.html:8
+msgid "Corpus of New Wymysorys"
+msgstr "Korpus nowego języka wilamowskiego"
+
+#: templates/NWymC/landing.html:10
+msgid "This is the beginning of a UI for the Corpus of New Wymysorys."
+msgstr ""
+"To jest początek interfejsu użytkownika dla korpusu nowego języka "
+"wilamowskiego. "
+
+#: templates/NWymC/landing.html:12
+msgid ""
+"Wymysorys has been undergoing language revitalization for the past 15 or so "
+"years, and like most endangered langauges, a bulk of research efforts has "
+"focused on older texts and especially older speakers. This resource is "
+"comprised of texts produced (written or translated) since the begining of "
+"revitalization efforts by young(er) people."
+msgstr ""
+"Język wilamowski przechodzi rewitalizację od około 15 lat i, podobnie "
+"jak większość zagrożonych języków, większość wysiłków badawczych "
+"koncentrowała się na starszych tekstach, a zwłaszcza starszych użytkownikach. "
+"Niniejsze zasoby składają się z wyprodukowanych tekstów (pisemnych lub "
+"przetłumaczonych) od początku wysiłków rewitalizacji przez młod(sz)ych "
+"ludzi. "
+
+#: templates/NWymC/landing.html:14
+msgid "In order to acces this resource, you must:"
+msgstr "Aby uzyskać dostęp do tego zasobu, musisz: "
+
+#: templates/NWymC/landing.html:17
+msgid "Register an account on the site"
+msgstr "Zarejestruj konto na stronie "
+
+#: templates/NWymC/landing.html:18
+msgid ""
+"Send a message to nespomila.web(at)ispan.waw.pl with the email you used to "
+"register the account and describe how you plan to use the resource. (In the "
+"future, this resource will be publically available, but while we iron out "
+"all the kinks we would like to know who has access and for what purpose.)"
+msgstr ""
+"Wyślij wiadomość na nespomila.web(małpa)ispan.waw.pl z konta e-mail użytym do "
+"zarejestrowania konta i opisz, w jaki sposób planujesz korzystać z zasobu. "
+"(W przyszłości ten zasób będzie dostępny publicznie, ale zanim doprowadzimy "
+"wszystko do ładu, chcielibyśmy wiedzieć, kto ma dostęp i w jakim celu). "
+
+#: templates/NWymC/landing.html:21
+msgid "Corpus Statistics"
+msgstr "Statystyka korpusu "
+
+#: templates/NWymC/landing.html:23
+msgid "The corpus contains:"
+msgstr "Korpus zawiera: "
+
+#: templates/NWymC/landing.html:25
+msgid "Words (any language):"
+msgstr "Słowa (w każdym języku): "
+
+#: templates/NWymC/landing.html:25 templates/NWymC/landing.html:26
+msgid "total"
+msgstr "ogółem "
+
+#: templates/NWymC/landing.html:25
+msgid "unique"
+msgstr "niepowtarzających się"
+
+#: templates/NWymC/landing.html:26
+msgid "Words (Wymysorys only):"
+msgstr "Słowa (tylko po wilamowsku): "
+
+#: templates/NWymC/landing.html:26
+msgid ""
+"unique (n.b. This does not include fragments marked as direct translations, "
+"only free Wymysorys text.)"
+msgstr "niepowtarzające się (nota bene, nie wliczając fragmentów oznaczonych jako tłumaczenie bezpośrednie, wyłącznie wolny tekst wilamowski)"
+
+#: templates/NWymC/landing.html:27
+msgid "Ten most frequent tokens and their occurrence in Wymysorys fragments:"
+msgstr "10 najczęstszych form i ich występowanie we fragmentach po wilamowsku"
+
+#: templates/NWymC/landing.html:34
+msgid "Assets:"
+msgstr "Pliki: "
+
+#: templates/NWymC/landing.html:34
+msgid "defined assets (source files), of which"
+msgstr "zdefiniowane pliki (pliki źródłowe), z których "
+
+#: templates/NWymC/landing.html:34
+msgid "are user facing"
+msgstr "są skierowane do użytkownika "
+
+#: templates/NWymC/landing.html:35
+msgid "Documents:"
+msgstr "Dokumenty: "
+
+#: templates/NWymC/landing.html:35
+msgid "defined Documents, of which"
+msgstr "zdefiniowane dokumenty, z których "
+
+#: templates/NWymC/landing.html:35
+msgid "are searchable in the corpus"
+msgstr "można przeszukiwać w korpusie "
+
+#: templates/NWymC/landing.html:36
+msgid "Authors:"
+msgstr "Autorzy: "
+
+#: templates/NWymC/landing.html:36
+msgid "defined Authors"
+msgstr "zdefiniowani autorzy "
+
+#: templates/NWymC/markup-reference.html:12
+msgid ""
+"A corpus, by definition, is a way to bring a unified structure to a set of "
+"texts. This corpus attempts to accomplish that with as little pain and "
+"monotony as possible by using a simple custom \"Markup language\". This is "
+"simply a small set of conventions inspired by XML to indicate various "
+"structures in a text."
+msgstr ""
+"Z definicji korpus jest sposobem na wprowadzenie ujednoliconej struktury do "
+"zbioru tekstów. Ten korpus ma za zadanie osiągnąć to jak najbezboleśniej i "
+"unikając monotonii, używając prostego \"języka znaczników\". Jest to po prostu "
+"niewielki zestaw konwencji inspirowanych XML w celu wskazania różnych "
+"struktur w tekście. "
+
+#: templates/NWymC/markup-reference.html:14
+msgid ""
+"The  markup language as a means to bring some userfriendliness to the "
+"structuring process. Anyone can create a marked up, plain-text version of a "
+"document; on submission of a finished markup to the corpus, it will be read "
+"by a script that will deposit various parts of the text into the corpus "
+"database in a correctly structured way. In other words, markup saves users "
+"of the corpus the trouble of having to understand and/or mess with the "
+"underlying database. This document describes the markup conventions "
+"associated with this corpus."
+msgstr ""
+"Język znaczników jest sposobem na wprowadzenie pewnej przyjazności dla "
+"użytkownika do procesu strukturyzacji. Każdy może stworzyć oznaczoną, "
+"prostą wersję dokumentu; Po przesłaniu gotowego znacznika do korpusu "
+"zostanie odczytany przez skrypt, który włączy różne części tekstu do bazy "
+"danych korpusu w odpowiednio ustrukturyzowany sposób. Innymi słowy, Markup "
+"oszczędza użytkownikom korpusu problemu zrozumienia wszystkiego i/lub bałaganu w "
+"podstawowej bazie danych. Ten dokument opisuje konwencje znaczników związane "
+"z tym korpusem. "
+
+#: templates/NWymC/markup-reference.html:19
+msgid "Paragraphs and Fragments"
+msgstr "Akapity i fragmenty "
+
+#: templates/NWymC/markup-reference.html:21
+msgid ""
+"While you do not need to understand all the nitty-gritty SQL, it is helpful "
+"to know a little bit about how the database stores text; basically there are "
+"two major subdivisions Paragraph and Fragment. Paragraph is a subdivision of "
+"a complete text. Fragment is a subdivision of a Paragraph. In the database, "
+"Paragraph objects are really just containers for Fragments – there is not "
+"text in a Paragraph by itself; all text is contained within a Fragment "
+"object. Aside from Paragraphs and Fragments, nothing else matters! The "
+"database doesn&#39;t care about sections, pages, sentences, lines or "
+"whatever..."
+msgstr ""
+"Chociaż nie musisz rozumieć wszystkich drobiazgowych SQL, pomocne jest "
+"dowiedzenie się trochę o tym, jak baza danych przechowuje tekst; Zasadniczo "
+"istnieją dwa główne podziały: akapit i fragment. Akapit to podział pełnego "
+"tekstu. Fragment jest podziałem akapitu. W bazie danych obiekty akapitu są "
+"tak naprawdę pojemnikami dla fragmentów - akapit nie zawiera tekstu sam z siebie; Cały "
+"tekst jest zawarty w obiekcie fragmentu. Oprócz akapitów i fragmentów nic "
+"innego nie ma znaczenia! Baza danych nie dba o sekcje, strony, zdania, linie "
+"lub cokolwiek innego ... "
+
+#: templates/NWymC/markup-reference.html:25
+msgid ""
+"PARAGRAPH: In prose, is a \"natural\" subdivision of text. Usually starting "
+"on a new line, set off by an indent, and ending with a new line. In the "
+"corpus markup, a paragraph sits on a single numbered line; if a paragraph is "
+"longer than the window it will be wrapped and the next numbered line will be "
+"pushed down to make space (see image). In poetry / song lyrics, by "
+"convention, the markup used here groups a stanza together as a paragraph. "
+"See the \"Simple Formatting\" subsection about inserting line breaks."
+msgstr ""
+"Akapit: W tekście prozą jest \"naturalnym\" podziałem tekstu. Zwykle zaczyna się od "
+"nowej linii, oznaczonej przez wcięcie i kończy nową linią. W znaczniku "
+"korpusu akapit znajduje się na jednej ponumerowanej linii; Jeśli akapit jest "
+"dłuższy niż okno, zostanie zwinięty, a następna linia ponumerowana zostanie "
+"zepchnięta w dół, aby zrobić miejsce (patrz obraz). W poezji / tekstach "
+"piosenek, według konwencji, znaczniki używa tutaj, grupuje zwrotkę razem jako "
+"akapit. Zobacz podsekcję \"proste formatowanie\" na temat dodawania przerw między "
+"liniami. "
+
+#: templates/NWymC/markup-reference.html:29
+msgid ""
+"FRAGMENT: Fragments are subdivisions of paragraphs. As mentioned above, in "
+"the database text is actually all stored in Fragment objects and by default "
+"a Paragraph will contain one Fragment unless there is some tag in the markup "
+"to trigger the close of one and opening of another Fragment within the "
+"paragraph. Since the corpus handles multilingual texts by design, the main "
+"function of fragments is to differentiate languages in multilingual text "
+"(see \"Text Language\" section). Setting a new language within a line of "
+"markup automatically causes program to end the current Fragment and begin a "
+"new Fragment. In general Monolingual Paragraph objects will contain just one "
+"Fragment. It is also possible to force a new Fragment without setting a new "
+"language using  &lt;ENDFRAGMENT/&gt;; this is handy only when there would be "
+"multiple Marginal Comments associated with a single fragment (since the "
+"parser only allows one Marginal text object per fragment... see the "
+"\"Marginal Text\" section below)."
+msgstr ""
+"Fragment: Fragmenty są częściami akapitów. Jak wspomniano powyżej, w "
+"tekście bazy danych jest w rzeczywistości przechowywane w obiektach "
+"fragmentów i domyślnie akapit będzie zawierał jeden fragment, chyba że "
+"istnieje jakiś znacznik w znaczniku, aby uruchomić zamknięcie jednego i "
+"otwarcie innego fragmentu w akapicie. Ponieważ korpus obsługuje "
+"wielojęzyczne teksty zgodnie z projektem, główną funkcją fragmentów jest "
+"różnicowanie języków w tekście wielojęzycznym (patrz sekcja \"język tekstowy"
+"\"). Ustawienie nowego języka w linii znaczników automatycznie powoduje, że "
+"program kończy obecny fragment i rozpoczyna nowy fragment. Ogólnie "
+"jednojęzyczne obiekty akapitu będą zawierać tylko jeden fragment. Możliwe "
+"jest również wymuszenie nowego fragmentu bez ustalania nowego języka za "
+"pomocą EndFragment/& Gt ;; Jest to przydatne tylko wtedy, gdy istniałoby "
+"wiele marginalnych komentarzy powiązanych z pojedynczym fragmentem (ponieważ "
+"parser pozwala tylko jeden marginalny obiekt tekstowy na fragment ... patrz "
+"sekcja \"marginalne tekst\" poniżej). "
+
+#: templates/NWymC/markup-reference.html:36
+msgid ""
+"Nevertheless, some other parts of a text, like pages, sentences, line "
+"breaks, or even text formatting like bold, italic, underline are in fact "
+"meaningful, so we take care of that in the text markup &mdash; described in "
+"the next sections."
+msgstr ""
+"Niemniej jednak niektóre inne części tekstu, takie jak strony, zdania, "
+"przerwy w linii, a nawet formatowanie tekstu, takie jak pogrubienie, kursywa, "
+"podkreślenie, są w rzeczywistości znaczące, więc zajmujemy się tym w "
+"oznaczeniach tekstów &mdash; opisane w następnych sekcjach. "
+
+#: templates/NWymC/markup-reference.html:41
+msgid "Simple Formatting"
+msgstr "Proste formatowanie "
+
+#: templates/NWymC/markup-reference.html:43
+msgid ""
+"We have a means to indicate the most basic types of formatting within a "
+"document."
+msgstr ""
+"Mamy środki do wskazania najbardziej podstawowych rodzajów formatowania w "
+"dokumencie. "
+
+#: templates/NWymC/markup-reference.html:48
+msgid "Line break:"
+msgstr "Przerwanie linii: "
+
+#: templates/NWymC/markup-reference.html:50
+msgid ""
+"Line breaks are sometimes meaningful and we might not realize it, but a line "
+"is not necessarily a good delimiter for structuring text (hence not using "
+"them as part of the database structure. We mark page breaks within fragments "
+"using &lt;br/&gt;. Poetry and song lyrics are obvious cases where line "
+"breaks are meaningful; in these cases a stanza is marked up as paragraph (i."
+"e. on a single line in the markup editor) and line breaks are indicated with "
+"the &lt;br/&gt; tag. Since we generally might not realize when line breaks "
+"are meaningful (unless you are marking up a text that you authored yourself) "
+"we indicate breaks wherever they occur within the text. Between words, &lt;"
+"br/&gt; should be adjacent to the following word with a space before &mdash; "
+"\"between &lt;br/&gt;words\". When a word breaks across a line breaks across "
+"a word, use &lt;br/&gt; with a hyphen prefix and no spaces around it &mdash; "
+"Wymy-&lt;br/&gt;sorys."
+msgstr ""
+"Przerwy linii są czasami znaczące i możemy nie zdawać sobie z tego sprawy, "
+"ale linia niekoniecznie jest dobrym ogranicznikiem do strukturyzacji tekstu "
+"(stąd nie używa ich jako części struktury bazy danych. Oznaczamy przerwy "
+"strony w fragmentach za pomocą &lt;br/&gt;. Teksty poezji i piosenek są "
+"oczywistymi przypadkami, w których przełamy liniowe są znaczące; w tych "
+"przypadkach zwrotka jest oznaczona jako akapit (tj. na jednej linii w "
+"edytorze znaczników), a przerwy linii są wskazane za pomocą tagu &lt;br/"
+"&gt;. Zasadniczo możemy nie zdawać sobie sprawy, kiedy przerwy na linii są "
+"znaczące (chyba że oznaczasz tekst, który sam się autoryzowałeś) wskazujemy, "
+"że w dowolnym momencie występują w tekście. Między słowami, &lt;br/&gt; "
+"Przestrzeń przed & &mdash; \"między &lt;br/&gt;słowa \". Gdy słowo "
+"przełamuje linię, przebijają się przez słowo, użyj &lt;br/&gt; z "
+"przedrostkiem i bez przestrzeni wokół niego &mdash; wi-&lt;br/&gt;lamowski. "
+
+#: templates/NWymC/markup-reference.html:53
+msgid "Page breaks:"
+msgstr "Przerwy na stronie: "
+
+#: templates/NWymC/markup-reference.html:54
+msgid ""
+"Like line breaks, page breaks are also usually not a reliable delimiter for "
+"structuring texts. Especially given that page breaks can happen within a "
+"sentence or paragraph, structuring text around page breaks causes problems "
+"in hierarchical document structure. Here we indicate page breaks with the "
+"&nbsp;&lt;ENDPAGE NR=\"1\"&gt; tag, where \"1\" represents the page that is "
+"actually ending (n.b. Use pages of the asset, not the numbered pages in the "
+"document &ndash; often in PDF documents the numbered pages do not match the "
+"page of the file.) Like line breaks, we mark page breaks where they fall, "
+"right in the text if a page breaks across a fragment. If the page break is "
+"not mid fragment, put the &nbsp;&lt;ENDPAGE NR=\"1\"&gt; tag on its own line."
+msgstr ""
+"Podobnie jak przerwy w linii, przerwy stron zwykle nie są niezawodnym "
+"ogranicznikiem do strukturyzacji tekstów. Zwłaszcza biorąc pod uwagę, że "
+"przerwy na stronie mogą nastąpić w zdaniu lub akapicie, strukturowanie "
+"tekstu wokół przerw na stronie powoduje problemy w hierarchicznej strukturze "
+"dokumentów. Tutaj wskazujemy przerwy na stronie za pomocą tagu &nbsp; &lt;ENDPAGE nr="
+"\"1\"&gt; , gdzie \"1\" reprezentuje stronę, która faktycznie kończy się "
+"(nota bene, użyj stron haj w zasobie, a nie numeracji stron w dokumencie & ndash; "
+"często w dokumentach PDF, numerowane strony nie pasują do stron w pliku.) "
+"Tak jak przerwy między liniami, oznaczamy przerwy na stronie tam, gdzie się znajdują, w samym tekście, "
+"jeśli strona przedziela fragment. Jeśli przerwa na stronie nie jest w połowie "
+"fragmentu, umieść tag &nbsp; &lt;ENDPAGE nr=\"1\"&gt; na  jego własnej linii. "
+
+#: templates/NWymC/markup-reference.html:57
+msgid "Font styles"
+msgstr "Style fontów "
+
+#: templates/NWymC/markup-reference.html:59
+msgid "Fonts are styled as in HTML."
+msgstr "Fonty są stylizowane jak w HTML. "
+
+#: templates/NWymC/markup-reference.html:69
+msgid ""
+"Escape angle brackets in text, as in html. \"&amp;lt;\" and \"&amp;gt;\" for "
+"&lt; and &gt;, respectively."
+msgstr ""
+"Eskejpuj nawiasy ostre w tekście, tak jak w HTML. Odpowiednio \"&amp;lt;\" i \"&amp;gt;\" "
+"dla &lt; i &gt; . "
+
+#: templates/NWymC/markup-reference.html:75
+msgid "Text Language"
+msgstr "Język tekstowy "
+
+#: templates/NWymC/markup-reference.html:77
+msgid ""
+"Every Fragment object in the database has a language attribute. To avoid "
+"tediously marking a bazillion times language, we use the &lt;SET language="
+"\"\"/&gt; tag whenever the language in a text changes."
+msgstr ""
+"Każdy obiekt fragmentu w bazie danych ma atrybut językowy. Aby uniknąć "
+"żmudnego oznaczania języka bazillion razy, używamy &lt;SET language=\"\"/"
+"&gt; tag, gdy język w tekście się zmienia. "
+
+#: templates/NWymC/markup-reference.html:79
+msgid ""
+"The first line of a markup <i>MUST</i> be a line with the &lt;SET language="
+"\"\"/&gt; tag and only this tag. This should be set to the first language in "
+"the document and can be re-set as often as necessary, either between "
+"Paragraphs or within fragments as appropriate."
+msgstr ""
+"Pierwszy linia znacznika <i>musi być</i> linią z &lt;<SET language=\"\"/&gt; "
+"tag i tylko ten tag. Powinno to być ustawione na pierwszy język w dokumencie "
+"i może być ponownie ustawione tak często, jak to konieczne, między akapitami "
+"lub w ramach fragmentów, stosownie do użytku. "
+
+#: templates/NWymC/markup-reference.html:81
+msgid "Language tags must be set to predefined values. These are:"
+msgstr "Tagi językowe muszą być ustawione na predefiniowane wartości. To są: "
+
+#: templates/NWymC/markup-reference.html:92
+msgid ""
+"Values that begin with \"TX\" are meant to be used with direct translations "
+"of words or phrases. The order of the two languages after \"TX\" is "
+"alphabetical; the same tag used for \"good-güt\" and \"güt-good\"."
+msgstr ""
+"Wartości, które zaczynają się od \"TX\", mają być używane z bezpośrednimi "
+"tłumaczeniami słów lub fraz. Kolejność dwóch języków po \"TX\" jest "
+"alfabetyczna; Ten sam znacznik używany dla \"Good-Güt\" i \"Güt-Good\". "
+
+#: templates/NWymC/markup-reference.html:98
+msgid "Marginal Text"
+msgstr "Tekst z marginesów "
+
+#: templates/NWymC/markup-reference.html:100
+msgid ""
+"Marginal text is text which is not part of the main text, such as page "
+"numbers, headers/footers, footnotes, notes scribbled in the margins or "
+"between lines. For instance:"
+msgstr ""
+"Tekst na marginesie to tekst, który nie jest częścią głównego tekstu, tak jak "
+"jak numery stron, nagłówki/stopki, przypisy, notatki zrobione na "
+"marginesie lub między liniami. Na przykład: "
+
+#: templates/NWymC/markup-reference.html:102
+msgid "Here is some text that was scribbled in the bottom margin of a document"
+msgstr "Oto jakiś tekst, który został zapisany na dolnym marginesie dokumentu "
+
+#: templates/NWymC/markup-reference.html:106
+msgid ""
+"The &lt;MARGIN&gt; tag has one attribute \"location\". Possible location "
+"values are:"
+msgstr ""
+"&lt;MARGINS&gt; tag ma jeden atrybut \"location\", czyli 'lokalizacja'. "
+"Możliwe wartości ten atrybut to: "
+
+#: templates/NWymC/markup-reference.html:119
+msgid ""
+"Currently, the markdown parser only handles one &lt;MARGIN&gt; tag, so a "
+"hack to include multiple Marginal Text instances on what would be one "
+"Fragment is to force a fragment break with &lt;ENDFRAGMENT/&gt;."
+msgstr ""
+"Obecnie parser znaczników obsługuje tylko jeden tag &lt;MARGIN&gt;, więc sposobem na "
+"zawarcie wielu tekstów na marginesie na "
+"jednym fragmencie, jest wymuszenie przerwy we fragmentu za pomocą &lt;ENDFRAGMENT/"
+"&gt;. "
+
+#: templates/NWymC/search.html:11
+msgid "Search the Corpus"
+msgstr "Przeszukaj korpus "
+
+#: templates/NWymC/search.html:16
+msgid "Advanced Search Options:"
+msgstr "Zaawansowane opcje wyszukiwania: "
+
+#: templates/NWymC/search.html:16 templates/NWymC/search.html:87
+msgid "show"
+msgstr "pokaż "
+
+#: templates/NWymC/search.html:26
+msgid "Search"
+msgstr "Szukaj "
+
+#: templates/NWymC/search.html:88
+msgid "hide"
+msgstr "ukryj "
+
+#: templates/NWymC/sidebar_nav.html:12
+msgid "Corpus Search"
+msgstr "Przeszukiwanie korpusu "
+
+#: views.py:108
+msgid "Corpus of New Wymysorys – Home"
+msgstr "Korpus nowszego języka wilamowskiego – Strona główna "
+
+#: views.py:125
+msgid "Corpus of New Wymysorys – About"
+msgstr "Korpus nowszego języka wilamowskiego – O nas "
+
+#: views.py:138
+msgid "Corpus of New Wymysorys – Asset Overview"
+msgstr "Korpus nowszego języka wilamowskiego – Przegląd plików "
+
+#: views.py:151 views.py:241 views.py:301 views.py:327 views.py:394
+msgid "Thanks for the contribution!"
+msgstr "Dzięki za wkład! "
+
+#: views.py:190
+msgid ""
+"You are requesting an Asset that either does not exist or you do not have "
+"permission to view"
+msgstr ""
+"Prosisz o zasób, który albo nie istnieje, albo nie masz pozwolenia na jego "
+"obejrzenie "
+
+#: views.py:195
+msgid "Corpus of New Wymysorys – Asset:"
+msgstr "Korpus nowszego języka wilamowskiego – Plik: "
+
+#: views.py:219
+msgid "Corpus of New Wymysorys – Author Overview"
+msgstr "Korpus nowszego języka wilamowskiego – Przegląd autora "
+
+#: views.py:269
+msgid "Corpus of New Wymysorys – Author:"
+msgstr "Korpus nowszego języka wilamowskiego – Autor: "
+
+#: views.py:317
+msgid "Corpus of New Wymysorys – Document Overview"
+msgstr "Korpus nowszego języka wilamowskiego – Przegląd dokumentu "
+
+#: views.py:352
+msgid "Corpus of New Wymysorys – Document meta:"
+msgstr "Korpus nowszego języka wilamowskiego – Metadane dokumentu: "
+
+#: views.py:427
+msgid "Corpus of New Wymysorys – Document content:"
+msgstr "Korpus nowszego języka wilamowskiego – Treść dokumentów: "
+
+#: views.py:520
+msgid "Corpus of New Wymysorys – Markup:"
+msgstr "Korpus nowszego języka wilamowskiego – Znaczniki: "
+
+#: views.py:537
+msgid "Corpus of New Wymysorys – Markup Reference"
+msgstr "Korpus nowszego języka wilamowskiego – Odniesienie do znaczników "
+
+#: views.py:553
+msgid "Corpus of New Wymysorys – Search"
+msgstr "Korpus nowszego języka wilamowskiego – Wyszukaj "

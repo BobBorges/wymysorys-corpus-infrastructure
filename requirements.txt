@@ -1,0 +1,5 @@
+Django==4.2.7
+django_ace==1.31.1
+django_reversion==5.0.8
+google_trans_new==1.1.9
+regex==2023.10.3

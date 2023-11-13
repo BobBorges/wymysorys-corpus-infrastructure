@@ -1,0 +1,57 @@
+{% extends 'NWymC/base.html' %}
+{% load i18n %}
+
+    {% block content %}
+
+    <h1 style="width:100%; text-align:center;">{% translate 'Oh No!!! Concurrency Error' %}</h1>   
+
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            <p style="width: 100%; text-align: justify;">{% translate 'Someone opened, edited, and saved this Markup Object since you started working on it. That means if your edits are saved to the database, theirs will be overwritten. Nobody wants that.' %}</p>
+
+            <p style="width:100%;text-align:center">{% translate 'You are' %}<b><u> {{ behindness}} </b></u>{% translate 'version(s) behind the database.' %}</p>    
+
+            <p style="width:100%;text-align:justify;">{% translate 'Just below here you can see a line-by-line comparison of the database version of the markup and the version you submitted just now. Lines that are not the same a highlighted in red under the "Your submission" column to help you visualize where there are discrepancies.' %}</p>
+
+            <p style="width:100%;text-align:center">{% translate 'When you are ready to re-submit your edits, click' %} <a href="#" target="_blank">{% translate 'here' %}</a>.<br>{% translate 'A new tab will open with the previous form loaded with an up-to-date Markup instance.' %}</p> 
+
+        </div>
+        <div class="col-lg-1"></div>      
+
+    </div>
+    <br><hr style="width:100%">    
+
+    
+    <div class="row">
+        <div class="col-lg-6">
+            <h3 style="text-align:center;">{% translate 'Database version' %}</h3> 
+            <p>
+                <ol>
+                {% for line in stored_lines %}
+                    <li>{{ line }}</li>
+                {% endfor %}
+                <ol>
+            </p>
+        </div>  
+
+
+        <div class="col-lg-6">
+            <h3 style="text-align:center;">{% translate 'Your submission' %}</h3>  
+            <p>
+                <ol>
+                {% for line in submitted_lines %}
+                    {% if line.0 == False %}
+                        <li style="background-color:red;">{{ line.1 }}</li>
+                    {% else %}
+                        <li>{{ line.1 }}</li>
+                    {% endif %}  
+                {% endfor %}
+                </ol>
+            </p>
+        </div>  
+        <br><hr>
+    </div>  
+    
+
+    {% endblock content %}

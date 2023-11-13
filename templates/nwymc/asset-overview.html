@@ -1,0 +1,98 @@
+{% extends 'nwymc/base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}    
+
+    {% block content %}
+
+        <div class="col-lg-1"></div>
+
+        <div class="col-lg-10 col-md-12">
+
+            <h2 class="center">{% translate 'Asset overview' %}
+            {% if request.user.permission.level != 'public' %}
+                &nbsp;<a href="javascript:void(0)" onclick="FormShowHide()" style="color:green;" id="PlusMinus">+</a>
+            {% endif %}
+            </h2>
+
+            {% if request.user.permission.level != 'public' %}
+            <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+            <div id="formDiv" style="display:none;">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info btn-block" type="submit">{% translate 'Submit' %}</button>
+                    </div>  
+                </form>
+            </div>
+            </div>
+            </div>
+            <hr>      
+            {% endif %}
+    
+            <p>
+                {% if request.user.permission.level == 'public' %}
+                    There are {{ num_assets }} Asset objects in the corpus. You cannot see individual assets with your permissions level.
+                {% else %}
+                <table>
+                    <tr>
+                        <th>{% translate 'Filename' %}</th>
+                        <th>{% translate 'In Document' %}</th>
+                        <th>{% translate 'Date Added' %}</th>
+                        <th>{% translate 'Shown in UI' %}</th>
+                    </tr>
+                    {% for AO in asset_objects %}
+                    <tr>
+                        <td><a href="{% url 'nwymc-asset-view' AO.id %}">{{ AO.file_instance|stringformat:"s"|slice:"13:" }}</a></td>
+                        {% if AO.document != None %}
+                            <td><a href="{% url 'nwymc-document-meta' AO.document.id %}">{{ AO.document }}</a></td>
+                        {% else %}
+                            <td>{% translate 'unassigned' %}</td>
+                        {% endif %}
+                        <td>{{ AO.dateadded }}</td>
+                        <td>{{ AO.showonui }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% endif %}
+            </p>
+            <hr>
+            <!--Pagination starts-->
+            <div class="pagination">
+                <p style="width:100%; text-align:center;">
+                {% if asset_objects.paginator.num_pages > 1 %}
+                {% translate 'pages:' %}&nbsp;
+                {% for num_page in asset_objects.paginator.page_range %} 
+                    {% if num_page == asset_objects.number %}
+                        <u>{{num_page}}</u>&nbsp;
+                    {% else %}
+                        <a href="?page={{num_page}}">{{num_page}}</a>&nbsp;
+                    {% endif %}
+                {% endfor %}
+                {% endif %}
+            </p>
+            </div>
+            <!--pagination ends-->    
+        </div>
+    
+    {% endblock content %}
+
+    {% block JSblock %}
+        <script>
+        function FormShowHide(){
+            var link = document.getElementById('PlusMinus');   
+            var formDiv = document.getElementById('formDiv');
+            if (formDiv.style.display == 'none'){
+                formDiv.style.display = 'block';
+                link.innerHTML = '–';   
+            } else {
+                formDiv.style.display = 'none';
+                link.innerHTML = '+';    
+            }        
+        }
+        </script>
+    {% endblock JSblock %}
