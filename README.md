@@ -65,20 +65,28 @@ urlpatterns += i18n_patterns(
 )
 ```
 
-#. MIDDLEWARE
+9. MIDDLEWARE
 
 ``` python
 'django.middleware.locale.LocaleMiddleware',
 ```
-8. add the following to settings, under TEMPLATES>OPTIONS>context_processors
+10. add the following to settings, under TEMPLATES>OPTIONS>context_processors
 ```
     'django.template.context_processors.i18n',
     'django.template.context_processors.media',
 ```
-9. make migrations and migrate
+11. make migrations and migrate
 
-10. run `createinitialrevisions`
 
-10. compile translations
+12. run `createinitialrevisions`
 
-11. (optional) populate DB with dump file
+13. compile translations
+
+14. Configure server 
+
+- serve `media/` to anyone
+- serve `media/nwymc-assets/`, authenticate against Django database
+- create superuser and other users if not already 
+- assign some users some permission in the nywmc Permission model
+
+15. (optional) populate DB with dump file
